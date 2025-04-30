@@ -1,0 +1,5 @@
+// Generar las clases de color utilizando @each
+@each $name, $color in $colors {
+  @include color-utility("text", $name, $color);
+  @include color-utility("bg", $name, $color);
+}

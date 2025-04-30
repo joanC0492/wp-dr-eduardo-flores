@@ -1,0 +1,323 @@
+/* ACUMIN VARIABLE CONCEPT */
+// @font-face {
+//   font-family: "AcuminVariableConcept";
+//   src: url("../fonts/acumin-variable-concept/Acumin-Variable-Concept.woff2")
+//     format("woff2");
+//   font-weight: normal;
+//   font-style: normal;
+// }
+@font-face {
+  font-family: "AcuminVariableConceptThin";
+  src: url("../fonts/acumin-variable-concept/acumin-variable-concept-thin.woff2")
+    format("woff2");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AcuminVariableConcept";
+  src: url("../fonts/acumin-variable-concept/Acumin-RPro.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AcuminVariableConceptItalic";
+  src: url("../fonts/acumin-variable-concept/Acumin-ItPro.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "AcuminVariableConceptSemiBold";
+  src: url("../fonts/acumin-variable-concept/Acumin-RPro.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AcuminVariableConceptBold";
+  src: url("../fonts/acumin-variable-concept/Acumin-BdPro.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AcuminVariableConceptBoldItalic";
+  src: url("../fonts/acumin-variable-concept/Acumin-BdItPro.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* ALTONE TRIAL */
+@font-face {
+  font-family: "AltoneTrialBold";
+  src: url("../fonts/altone-trial/AltoneTrial-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AltoneTrialBoldOblique";
+  src: url("../fonts/altone-trial/AltoneTrial-BoldOblique.woff2")
+    format("woff2");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "AltoneTrialRegular";
+  src: url("../fonts/altone-trial/AltoneTrial-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AltoneTrialRegularOblique";
+  src: url("../fonts/altone-trial/AltoneTrial-RegularOblique.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* MYRIAD PRO */
+@font-face {
+  font-family: "MyriadProLight";
+  src: url("../fonts/myriad-pro/MyriadPro-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MyriadProRegular";
+  src: url("../fonts/myriad-pro/MYRIADPRO-REGULAR.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MyriadProCondensed";
+  src: url("../fonts/myriad-pro/MYRIADPRO-COND.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MyriadProCondensedItalic";
+  src: url("../fonts/myriad-pro/MYRIADPRO-CONDIT.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "MyriadProSemiBold";
+  src: url("../fonts/myriad-pro/MYRIADPRO-SEMIBOLD.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MyriadProSemiBoldItalic";
+  src: url("../fonts/myriad-pro/MYRIADPRO-SEMIBOLDIT.woff2") format("woff2");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "MyriadProBold";
+  src: url("../fonts/myriad-pro/MYRIADPRO-BOLD.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MyriadProBoldItalic";
+  src: url("../fonts/myriad-pro/MYRIADPRO-BOLDIT.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "MyriadProBoldCondensed";
+  src: url("../fonts/myriad-pro/MYRIADPRO-BOLDCOND.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MyriadProBoldCondensedItalic";
+  src: url("../fonts/myriad-pro/MYRIADPRO-BOLDCONDIT.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* CLASES PARA USAR LAS FUENTES */
+/*=========================================ACUMIN VARIABLE CONCEPT=========================================*/
+// .acumin-variable-concept {
+//   font-family: "AcuminVariableConcept", sans-serif;
+// }
+.acumin-variable-concept-thin {
+  font-family: "AcuminVariableConceptThin", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+.acumin-variable-concept {
+  font-family: "AcuminVariableConcept", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.acumin-variable-concept-italic {
+  font-family: "AcuminVariableConceptItalic", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.acumin-variable-concept-semibold{
+  font-family: "AcuminVariableConceptSemiBold", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-shadow: 0.3px 0.3px 0 currentColor; // Por mientras :)
+}
+
+.acumin-variable-concept-bold {
+  font-family: "AcuminVariableConceptBold", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.acumin-variable-concept-bold-italic {
+  font-family: "AcuminVariableConceptBoldItalic", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+/*=========================================ALTONE TRIAL=========================================*/
+.altone-trial-regular {
+  font-family: "AltoneTrialRegular", sans-serif;
+  font-weight: 400 !important;
+  font-style: normal;
+}
+.altone-trial-regular-oblique {
+  font-family: "AltoneTrialRegularOblique", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.altone-trial-bold {
+  font-family: "AltoneTrialBold", sans-serif;
+  font-weight: 700 !important;
+  font-style: normal;
+}
+.altone-trial-bold-oblique {
+  font-family: "AltoneTrialBoldOblique", sans-serif;
+  font-weight: 700 !important;
+  font-style: italic;
+}
+/*=========================================MYRIAD PRO=========================================*/
+.myriad-pro-light {
+  font-family: "MyriadProLight", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.myriad-pro-regular {
+  font-family: "MyriadProRegular", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.myriad-pro-condensed {
+  font-family: "MyriadProCondensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.myriad-pro-condensed-italic {
+  font-family: "MyriadProCondensedItalic", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.myriad-pro-semi-bold {
+  font-family: "MyriadProSemiBold";
+  font-weight: 600;
+  font-style: normal;
+}
+.myriad-pro-semi-bold-italic {
+  font-family: "MyriadProSemiBoldItalic", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.myriad-pro-bold {
+  font-family: "MyriadProBold", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.myriad-pro-bold-italic {
+  font-family: "MyriadProBoldItalic", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.myriad-pro-bold-condensed {
+  font-family: "MyriadProBoldCondensed", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.myriad-pro-bold-condensed-italic {
+  font-family: "MyriadProBoldCondensedItalic", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/*=========================================Montserrat=========================================*/
+.montserrat-100 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+.montserrat-200 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+.montserrat-300 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+.montserrat-400 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.montserrat-500 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+.montserrat-600 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+.montserrat-700 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.montserrat-800 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+.montserrat-900 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}

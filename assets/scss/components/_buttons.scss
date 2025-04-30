@@ -1,0 +1,33 @@
+// Extiende botones de Bootstrap
+.btn-wordpress {
+  // @extend .btn;
+  // @extend .btn-primary;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+// Corrección para botones de Gutenberg
+.wp-block-button__link {
+  // @extend .btn;
+  // @extend .btn-primary;
+}
+
+// Header
+.btn-cta-header {
+  background-color: map-get($map: $colors, $key: "sky-blue-1");
+  color: map-get($map: $colors, $key: "white-1");
+  border-radius: 999px;
+  // padding: 10.5px 26.7px;
+  padding: 13.5px 26.7px 7.5px;
+  font-size: 25px;
+  transition: all 0.35s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  &:hover {
+    background-color: map-get($map: $colors, $key: "yellow-1");
+    text-decoration: none;
+  }
+}

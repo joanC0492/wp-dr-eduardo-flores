@@ -1,0 +1,25 @@
+.home-hero {
+  margin-top: -172px;
+  margin-top: -140px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 973px;
+  max-height: 973px;
+
+  .wp-block-cover {
+    min-height: 500px;
+  }
+  h1 {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  &__content {
+  }
+}
+
+// All Pages
+.app:has(> .page-main) {
+  padding-top: 1.5rem;
+  // padding-bottom: 3rem;
+}

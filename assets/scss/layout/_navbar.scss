@@ -1,0 +1,252 @@
+// Variables para colores y transiciones
+// $primary-bg: #ccc;
+$primary-bg: map-get(
+  $map: $colors,
+  $key: "white-1",
+);
+$primary-hover-bg: #39b54a7a;
+// $secondary-bg: #f89090;
+$secondary-bg: map-get(
+  $map: $colors,
+  $key: "white-1",
+);
+$transition-duration: 0.35s;
+// $submenu-width: 150px;
+$submenu-width: 290px;
+$padding-inline: 16px;
+
+// =============================================================================
+// Componente: Menú WordPress
+// =============================================================================
+.menu {
+  &-item {
+    position: relative;
+
+    &-has-children {
+      > .nav-link {
+        &::after {
+          @include dropdown-arrow(down);
+        }
+      }
+
+      > .sub-menu {
+        @media (min-width: 992px) {
+          position: absolute;
+          z-index: 9;
+        }
+
+        .menu-item {
+          &-has-children {
+            > .nav-link {
+              &::after {
+                @include dropdown-arrow(right);
+                position: relative;
+                top: 0.2rem;
+                left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// Componente: Menú WordPress Bootstrap Personalizado
+// =============================================================================
+.navbar-jc {
+  > .nav-item:not(.menu-item__btn) {
+    > .nav-link {
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        height: 5px;
+        // left: 0;
+        // width: 100%;
+        left: 14px;
+        width: calc(100% + -14px + -14px);        
+        background-color: transparent;
+        border-radius: 4px;
+        transition: all $transition-duration;
+      }
+      &:hover {
+        &::before {
+          background-color: map-get($map: $colors, $key: "yellow-1");
+        }
+      }
+    }
+  }
+  .nav-link {
+    line-height: 1.2;
+    // &:hover {
+    //   background-color: $primary-hover-bg;
+    // }
+  }
+
+  // Submenú general
+  .sub-menu {
+    // A
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    // transition: all 0.3s ease;
+    // padding-left: 1rem;
+    // list-style: none;
+    // B
+    transition: all $transition-duration ease-in-out;
+
+    @media (min-width: 992px) {
+      width: $submenu-width;
+    }
+
+    .nav-item {
+      @media (min-width: 992px) {
+        border-bottom: 1px solid map-get($colors, "gray-1");
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .nav-link {
+      padding-inline: $padding-inline;
+      padding-left: calc(1rem * 1.5);
+      padding-right: calc(1rem * 1.5);
+      //
+      // padding-block: 25px;
+      padding-block: 20px;
+    }
+
+    // A
+    &.open {
+      max-height: 500px; /* Suficiente para cualquier contenido */
+      opacity: 1;
+      transform: translateY(0);
+    }
+    // B
+    @media (min-width: 992px) {
+      max-height: initial;
+      overflow: visible;
+      // max-height: 500px;
+    }
+  }
+
+  // Items de menú directos
+  > .menu-item {
+    > .nav-link {
+      // padding-left: calc(1rem * 1.75);
+      // padding-right: calc(1rem * 1.75);
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+      color: map-get($map: $colors, $key: "blue-1");
+    }
+    // SUBMENU 1ER NIVEL
+    > .sub-menu {
+      @media (min-width: 992px) {
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+        // height: 0;
+
+        height: initial;
+        //
+        border: 1px solid map-get($colors, "gray-1");
+      }
+
+      // ITEMS DE SUBMENU 1ER NIVEL
+      .menu-item {
+        // ENLACES DE SUBMENU 1ER NIVEL
+        > .nav-link {
+          background-color: $primary-bg;
+          // transition: background-color $transition-duration ease-in-out;
+          transition: all $transition-duration;
+          //
+          color: map-get($map: $colors, $key: "blue-1");
+          // @extend .altone-trial-regular;
+          @extend .acumin-variable-concept;
+          font-size: 18px;
+          line-height: 1.35;
+          @media (min-width: 992px) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+          &:hover {
+            // background-color: darken($primary-bg, 10%);
+            background-color: map-get($map: $colors, $key: "yellow-1");
+            color: map-get($map: $colors, $key: "white-1");
+          }
+        }
+
+        // SUBMENU DEMAS NIVELES
+        .sub-menu {
+          @media (min-width: 992px) {
+            transform-origin: left;
+            transform: scaleX(0);
+            left: 100%;
+            top: 0;
+            opacity: 0;
+            // height: 0;
+
+            height: initial;
+            //
+            border: 1px solid map-get($colors, "gray-1");
+            width: 205px;
+          }
+
+          .menu-item > .nav-link {
+            background-color: $secondary-bg;
+            // transition: background-color $transition-duration ease-in-out;
+            transition: all $transition-duration;
+            @media (min-width: 992px) {
+              // display: flex;
+              // align-items: center;
+              // justify-content: space-between;
+              padding-block: 15px;
+            }
+            &:hover {
+              // background-color: darken($secondary-bg, 10%);
+              background-color: map-get($map: $colors, $key: "yellow-1");
+            }
+          }
+        }
+
+        // Mostrar submenú al hover
+        &:hover > .sub-menu {
+          @media (min-width: 992px) {
+            transform: scaleX(1);
+            opacity: 1;
+            height: initial;
+          }
+        }
+      }
+    }
+
+    // Mostrar primer nivel de submenú al hover
+    &:hover > .sub-menu {
+      @media (min-width: 992px) {
+        transform: scaleY(1);
+        opacity: 1;
+        height: initial;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// Componente: Menú WordPress Bootstrap Personalizado
+// =============================================================================
+// Custom
+
+.navbar-jc {
+  > .nav-item {
+    > .nav-link {
+      // color: #063c5b !important;
+      font-size: 23px;
+    }
+  }
+}
