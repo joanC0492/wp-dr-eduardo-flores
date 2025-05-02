@@ -54,10 +54,24 @@
     });
   };
 
+  const toggleStickyHeader = () => {
+    const header = document.querySelector("#header");
+
+    // if (window.scrollY > 100) {
+    if (window.scrollY > 36) {
+      header.classList.add("sticky-top", "shadow", "bg-white-1");
+      header.classList.remove("position-relative");
+    } else {
+      header.classList.remove("sticky-top", "shadow", "bg-white-1");
+      header.classList.add("position-relative");
+    }
+  };
+
   const initDOMReady = () => {
     console.log("DOM Ready!");
     setActiveMenuItem();
   };
 
   document.addEventListener("DOMContentLoaded", initDOMReady);
+  window.addEventListener("scroll", toggleStickyHeader);
 })();

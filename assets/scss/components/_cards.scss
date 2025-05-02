@@ -1,0 +1,30 @@
+.card-blog {
+  // max-width: 312px;
+  &__article {
+    transition: all 0.3s;
+    border: 3.1458px solid transparent;
+  }
+  &__heading {
+    height: 84.2887px;
+  }
+  &__img {
+    object-fit: cover;
+    height: 208px;
+    width: 100%;
+  }
+  &__title {
+    font-size: 20px;
+  }
+  &__content {
+    transition: all 0.3s;
+  }  
+  &:hover {
+    .card-blog__article {
+      // border: 3.1458px solid map-get($map: $colors, $key: "yellow-1");
+      border-color: map-get($map: $colors, $key: "yellow-1");
+    }
+    .card-blog__content {
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+  }
+}

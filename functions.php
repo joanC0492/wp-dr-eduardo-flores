@@ -219,3 +219,33 @@ add_filter('pods_field_output', 'process_pods_shortcode_in_wysiwyg');
 //   }
 // }
 // add_action('admin_head', 'mi_estilo_personalizado_para_pods_admin');
+
+
+// Permitir subir archivos SVG
+function allow_svg_upload($mimes)
+{
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'allow_svg_upload');
+// Validar tipo de archivo SVG correctamente (WordPress 5.1+)
+function fix_svg_mime_type($data, $file, $filename, $mimes)
+{
+  $ext = pathinfo($filename, PATHINFO_EXTENSION);
+  if ($ext === 'svg') {
+    $data['ext'] = 'svg';
+    $data['type'] = 'image/svg+xml';
+  }
+  return $data;
+}
+add_filter('wp_check_filetype_and_ext', 'fix_svg_mime_type', 10, 4);
+
+
+// Para que la busqueda solo devuelva entradas (posts) y no páginas o cualquier otro tipo de contenido
+function limitar_busqueda_a_entradas($query)
+{
+  if ($query->is_search() && $query->is_main_query() && !is_admin()) {
+    $query->set('post_type', 'post');
+  }
+}
+add_action('pre_get_posts', 'limitar_busqueda_a_entradas');

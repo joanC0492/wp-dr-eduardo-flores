@@ -41,31 +41,24 @@ $titulo = get_post_meta($id, 'titulo', true);
 </div>
 
 
-<section class="blog-posts mt-5">
+<section class="blog-posts mt-5 ---">
   <div class="container">
     <div class="row">
       <?php if (have_posts()): ?>
         <?php while (have_posts()): ?>
           <?php the_post(); ?>
           <div class="col-lg-4">
-            <a href="<?php the_permalink(); ?>" class="blog-posts__card card p-4 text-decoration-none">
-              <article class="blog-posts__card-body">
-                <div class="blog-posts__card-figure">
-                  <?php if (has_post_thumbnail()): ?>
-                    <?php $image_url_post = get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>
-                    <img src="<?= esc_url($image_url_post); ?>" alt="<?= esc_attr(get_the_title()) ?>"
-                      class="blog-posts__card-img img-fluid w-100" />
-                  <?php else: ?>
-                    <img src="<?= get_template_directory_uri(); ?>/assets/images/no-thumbnail.webp" alt="Imagen por defecto"
-                      class="blog-posts__card img-fluid" />
-                  <?php endif; ?>
-                </div>
-                <div class="blog-posts__card-content">
-                  <h2 class="blog-posts__card-title"><?php the_title(); ?></h2>
-                </div>
-                <div class="blog-posts__card-description"><?php the_excerpt(); ?></div>
-              </article>
-            </a>
+            <?php
+            $data = [
+              'url' => get_permalink(),
+              'image_url' => has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'medium') : '',
+              'title' => get_the_title(),
+              'excerpt' => get_the_excerpt(),
+            ];
+            // Lo incluís y pasás las variables
+            set_query_var('card_data', $data);
+            get_template_part('template-parts/card');
+            ?>
           </div>
         <?php endwhile; ?>
         <?php the_posts_pagination([
@@ -87,34 +80,11 @@ $titulo = get_post_meta($id, 'titulo', true);
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-          <h2 class="page-questions__title">Preguntas Frecuentes</h2>
+          <h2 class="page-questions__title text-blue-1 acumin-variable-concept-bold">Preguntas Frecuentes</h2>
         </div>
         <div class="col-10 mx-auto">
-          <div class="page-questions__accordion accordion mt-4" id="accordionExample">
-            <?php foreach ($preguntas as $index => $pregunta_id): ?>
-              <?php
-              $pregunta_post = get_post($pregunta_id);
-              if (!$pregunta_post)
-                continue;
-              $titulo_pregunta = esc_html($pregunta_post->post_title);
-              $contenido_pregunta = apply_filters('the_content', $pregunta_post->post_content);
-              $collapse_id = 'collapse' . $index;
-              ?>
-              <div class="page-questions__accordion-item accordion-item">
-                <h2 class="page-questions__accordion-header accordion-header" id="heading<?= $index; ?>">
-                  <button class="page-questions__accordion-button accordion-button collapsed" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#<?= $collapse_id ?>" aria-expanded="false"
-                    aria-controls="<?= $collapse_id ?>">
-                    <?= $titulo_pregunta ?>
-                  </button>
-                </h2>
-                <div id="<?= $collapse_id ?>" class="page-questions__accordion-collape accordion-collapse collapse"
-                  data-bs-parent="#accordionExample">
-                  <div class="accordion-body"><?= $contenido_pregunta; ?></div>
-                </div>
-              </div>
-            <?php endforeach; ?>
-          </div>
+          <?php set_query_var('preguntas', $preguntas); ?>
+          <?php get_template_part('template-parts/faq-section'); ?>
         </div>
       </div>
     </div>

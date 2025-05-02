@@ -1,0 +1,54 @@
+// abstracts/_animations.scss
+// Mapa de duraciones
+$animation-durations: (
+  "300": 0.3s,
+  "500": 0.5s,
+  "800": 0.8s,
+  "1000": 1s,
+);
+
+// Keyframes base
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoom-in {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// Mixin para generar clases con distintas duraciones
+@mixin generate-animation-classes($name, $keyframe) {
+  @each $label, $time in $animation-durations { 
+    .#{$name}-#{$label} {
+      animation: #{$keyframe} #{$time} ease forwards;
+    }
+  }
+}
+
+// Usamos el mixin para generar todas las combinaciones
+@include generate-animation-classes("fade-in", fade-in);
+@include generate-animation-classes("slide-up", slide-up);
+@include generate-animation-classes("zoom-in", zoom-in);

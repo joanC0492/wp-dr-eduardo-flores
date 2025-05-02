@@ -86,42 +86,18 @@
       </div>
     </section>
 
-    <section id="page-questions" class="page-questions">
-      <div class="container">
-        <div class="row">
-          <!-- <div class="col-12 text-center">
-            <h2>Preguntas Frecuentes</h2>
-          </div> -->
-          <?php if (!empty($preguntas)): ?>
-            <div class="col-12">
-              <div class="accordion mt-4" id="accordionExample">
-                <?php foreach ($preguntas as $index => $pregunta_id): ?>
-                  <?php
-                  $pregunta_post = get_post($pregunta_id);
-                  if (!$pregunta_post)
-                    continue;
-                  $titulo_pregunta = esc_html($pregunta_post->post_title);
-                  $contenido_pregunta = apply_filters('the_content', $pregunta_post->post_content);
-                  $collapse_id = 'collapse' . $index;
-                  ?>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading<?= $index; ?>">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#<?= $collapse_id ?>" aria-expanded="false" aria-controls="<?= $collapse_id ?>">
-                        <?= $titulo_pregunta ?>
-                      </button>
-                    </h2>
-                    <div id="<?= $collapse_id ?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                      <div class="accordion-body"><?= $contenido_pregunta; ?></div>
-                    </div>
-                  </div>
-                <?php endforeach; ?>
-              </div>
+    <?php if (!empty($preguntas)): ?>
+      <section id="page-questions" class="page-questions py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 mx-auto">
+              <?php set_query_var('preguntas', $preguntas); ?>
+              <?php get_template_part('template-parts/faq-section'); ?>
             </div>
-          <?php endif; ?>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    <?php endif; ?>
 
     <?php if (!empty($seccion_agenda)): ?>
       <?= do_shortcode('[seccion_agendar_cita]'); ?>

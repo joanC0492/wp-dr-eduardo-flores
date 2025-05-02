@@ -1,20 +1,39 @@
 .home-hero {
   margin-top: -172px;
   margin-top: -140px;
-  position: relative;
+  // position: relative;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 973px;
+  // height: 973px;
+  // height: calc(100vh + -36px + -32px);
+  height: calc(100vh + -36px);
   max-height: 973px;
 
   .wp-block-cover {
     min-height: 500px;
   }
-  h1 {
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  // h1 {
+  //   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  // }
+  &__title {
+    font-size: 62.661px;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
   }
   &__content {
+  }
+}
+.home-cintillo {
+  &__content {
+    gap: 35px;
+  }
+  &__list {
+    gap: 18px;
+  }
+  &__title {
+    font-size: 40.3855px;
   }
 }
 
@@ -22,4 +41,264 @@
 .app:has(> .page-main) {
   padding-top: 1.5rem;
   // padding-bottom: 3rem;
+}
+
+// HOME PAGE
+// Variables
+.page-slug-home {
+  .home-content {
+    &__img-main {
+    }
+    &__profesion {
+      font-size: 27.5175px;
+    }
+    &__title {
+      font-size: 51.1476px;
+    }
+    &__list-esp-item {
+      font-size: 23.2996px;
+    }
+    &__list-logo-txt {
+      font-size: 9.8038px;
+    }
+    &__text {
+      p {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  //
+  // Variables
+  $blue-dark: #006998;
+  $blue-light: #e6f6fb;
+  $accent: #f8a521;
+  $white: #fff;
+  $shadow: rgba(0, 0, 0, 0.1);
+  // Estilos
+  .surgery-process {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top center;
+    &__row {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: left center;
+    }
+    &__circle {
+      $ml: 35px;
+      margin-left: $ml;
+      max-width: calc(513px - $ml);
+      width: 100%;
+    }
+    &__title {
+      font-size: 52.4609px;
+    }
+    &__subtitle {
+    }
+    &__card {
+      max-width: 575.4844px;
+      width: 100%;
+      border-radius: 3rem;
+    }
+    &__card-title {
+      font-size: 25px;
+    }
+    &__card-item {
+      font-size: 21px;
+      line-height: 1.25;
+    }
+    &__card-content {
+      .surgery-process__card {
+        &:nth-of-type(1) {
+          margin-left: 15px;
+        }
+        &:nth-of-type(2) {
+          margin-left: 90px;
+        }
+        &:nth-of-type(3) {
+        }
+      }
+    }
+    &__left {
+      // background-color: $blue-dark;
+      color: $white;
+      // min-height: 100vh;
+
+      .surgery-process__circle {
+        // width: 400px;
+        // height: 400px;
+        // background: $blue-dark;
+        // border: 20px solid lighten($blue-dark, 15%);
+        // border-radius: 50%;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        // padding: 2rem;
+        // text-align: center;
+      }
+
+      // .surgery-process__icon i {
+      //   font-size: 2rem;
+      // }
+
+      // .surgery-process__title {
+      //   font-size: 1.6rem;
+      //   font-weight: 700;
+      //   line-height: 1.4;
+
+      //   .highlight {
+      //     color: $accent;
+      //   }
+      // }
+
+      // .surgery-process__subtitle {
+      //   font-size: 0.9rem;
+      //   margin-top: 1rem;
+      //   color: $white;
+      // }
+    }
+
+    &__right {
+      // background-color: $blue-light;
+
+      .surgery-process__card {
+        padding: 2rem;
+        box-shadow: 0 10px 20px $shadow;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+        ul {
+          list-style: none;
+          padding-left: 0;
+
+          li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+
+            &::before {
+              content: "•";
+              color: map-get($map: $colors, $key: "sky-blue-1");
+              font-weight: bold;
+              position: absolute;
+              left: 0;
+              font-family: "Montserrat";
+              font-size: 28px;
+              transform: translateY(-5px);
+            }
+          }
+        }
+      }
+    }
+    // Responsivo: reducir círculo en móviles
+    @media (max-width: 768px) {
+      &__left {
+        .surgery-process__circle {
+          width: 280px;
+          height: 280px;
+          padding: 1.5rem;
+        }
+
+        .surgery-process__title {
+          font-size: 1.2rem;
+        }
+      }
+
+      &__right {
+        padding: 2rem 1rem;
+      }
+    }
+  }
+
+  //
+  .testimonials {
+    // padding: 4rem 0;
+    background-color: #f8f9fa;
+
+    &__title {
+      // text-align: center;
+      // margin-bottom: 3rem;
+      font-size: 59.0828px;
+      // color: #333;
+      // font-weight: 700;
+    }
+
+    &__content {
+      // gap: 2rem;
+
+      @media (max-width: 767.98px) {
+        // gap: 1.5rem;
+      }
+    }
+
+    &__card {
+      // background-color: white;
+      // box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      // border-radius: 0.5rem;
+      // padding: 2rem;
+      // display: flex;
+      // flex-direction: column;
+      justify-content: center;
+      max-width: 375px;
+      width: 100%;
+    }
+
+    &__name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #212529;
+      margin-bottom: 1rem;
+    }
+
+    &__description {
+      color: #6c757d;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    &__link {
+      // color: #0d6efd;
+      // text-decoration: none;
+      // font-weight: 500;
+      // transition: color 0.3s ease;
+
+      // &:hover {
+      //   color: #0a58ca;
+      //   text-decoration: underline;
+      // }
+      padding-inline: 24px;
+      font-size: 15.8px;
+    }
+
+    &__video {
+      .ratio {
+        height: 421px;
+      }
+      iframe {
+        border-radius: 0.5rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  .latest-posts {
+    &__title {
+      font-size: 40px;
+    }
+    &__container-cards {
+      grid-template-columns: repeat(3, 312px);
+    }
+    &__cta {
+      padding-inline: 24px;
+    }
+  }
+
+  .page-questions {
+    &__title {
+      font-size: 40px;
+    }
+  }
 }

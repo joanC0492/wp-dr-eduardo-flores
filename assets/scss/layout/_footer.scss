@@ -68,3 +68,122 @@
     }
   }
 }
+
+$width-wsp: 96px;
+$height-wsp: 96px;
+$width-all-wsp: 337px;
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  animation: fadeIn 0.5s ease forwards;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 1s;
+    position: relative;
+    justify-content: flex-start;
+    width: $width-wsp;
+    overflow: hidden;
+    &:hover {
+      width: $width-all-wsp;
+      .whatsapp-button__content {
+        opacity: 1;
+        background-color: map-get($map: $colors, $key: "green-1");
+      }
+      .whatsapp-button__text {
+      }
+    }
+  }
+
+  &__icon {
+    width: $width-wsp;
+    height: $height-wsp;
+    // padding: 12px;
+    // background-color: #25d366;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease;
+    position: relative;
+    z-index: 10;
+  }
+
+  &__content {
+    transition: all 1s;
+    opacity: 0;
+    background-color: transparent;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 999px;
+    padding: 20.5px 20px;
+    margin-left: 10px;
+    overflow: hidden;
+
+    z-index: 9;
+    padding-right: 20px;
+    // animation: fadeIn 1s ease forwards;
+    //
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 96px;
+    padding-left: 106px;
+    //
+    width: 324px;
+  }
+
+  &__text {
+    font-size: 25px;
+    margin: 0;
+    line-height: 1.1;
+    animation: slideIn 0.8s ease forwards;
+  }
+
+  &__line {
+    display: inline-block;
+    height: 4.5px;
+    width: 60px;
+    background: white;
+    border-radius: 2px;
+    // animation: growLine 1s 1s forwards;
+  }
+}
+
+// Animaciones
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    // transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    // transform: translateX(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes growLine {
+  from {
+    width: 0;
+  }
+  to {
+    width: 30px;
+  }
+}

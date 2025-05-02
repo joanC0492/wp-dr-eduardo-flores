@@ -10,16 +10,17 @@
             <?php while (have_posts()):
               the_post(); ?>
               <div class="col-lg-6 mb-4">
-                <a href="<?php the_permalink(); ?>" class="card h-100 text-decoration-none">
-                  <?php if (has_post_thumbnail()): ?>
-                    <img src="<?= get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" class="card-img-top"
-                      alt="<?= esc_attr(get_the_title()); ?>">
-                  <?php endif; ?>
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold text-dark"><?= get_the_title(); ?></h5>
-                    <p class="card-text"><?= get_the_excerpt(); ?></p>
-                  </div>
-                </a>
+                <?php
+                $data = [
+                  'url' => get_permalink(),
+                  'image_url' => has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'medium') : '',
+                  'title' => get_the_title(),
+                  'excerpt' => get_the_excerpt(),
+                ];
+                // Lo incluís y pasás las variables
+                set_query_var('card_data', $data);
+                get_template_part('template-parts/card');
+                ?>
               </div>
             <?php endwhile; ?>
           <?php else: ?>

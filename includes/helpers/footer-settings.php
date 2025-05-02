@@ -8,6 +8,8 @@ function get_footer_settings_data()
       'footer_informacion' => '',
       'footer_cirugias' => '',
       'contacto' => '',
+      'numero_whatsapp' => '',
+      'mensaje_whatsapp' => '',
     ];
   }
 
@@ -20,6 +22,8 @@ function get_footer_settings_data()
       'footer_informacion' => '',
       'footer_cirugias' => '',
       'contacto' => '',
+      'numero_whatsapp' => '',
+      'mensaje_whatsapp' => '',
     ];
   }
 
@@ -29,5 +33,7 @@ function get_footer_settings_data()
     'footer_informacion' => $settings->field('footer_informacion'),
     'footer_cirugias' => $settings->field('footer_cirugias'),
     'contacto' => $settings->field('contacto'),
+    'numero_whatsapp' => $settings->field('boton_whatsapp_cta'),
+    'mensaje_whatsapp' => $settings->field('boton_whatsapp_texto'),
   ];
 }

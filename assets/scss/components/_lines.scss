@@ -1,0 +1,25 @@
+@mixin line-title($height, $offset: 0) {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: $offset;
+    width: 100%;
+    height: $height;
+    background-color: map-get($colors, "yellow-1");
+    border-radius: 8px;
+  }
+}
+
+.line-title-lg {
+  @include line-title(11.1599px, -10px);
+}
+
+.line-title-md {
+  @include line-title(8.7778px);
+  &::before {
+    bottom: -4px;
+  }
+}

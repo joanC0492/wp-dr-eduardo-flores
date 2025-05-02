@@ -31,3 +31,73 @@
     text-decoration: none;
   }
 }
+
+.btn-cta-agendar-cita {
+  background-color: map-get($map: $colors, $key: "sky-blue-2");
+  color: map-get($map: $colors, $key: "blue-1");
+  border-radius: 999px;
+  padding: 26.5px 26.7px 20.5px; // 3pixeles+ normal 3pixelesmenos
+  font-size: 45.0353px;
+  transition: all 0.35s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border: 2.6432px solid map-get($map: $colors, $key: "blue-1");
+  column-gap: 15px;
+  [class*="icon-arrow-btn-"] {
+    width: 13.3937px;
+    margin-bottom: calc(13.3937px / 2);
+  }
+  .icon-arrow-btn-white {
+    display: none;
+  }
+  &:hover {
+    border-color: map-get($map: $colors, $key: "yellow-1");
+    background-color: map-get($map: $colors, $key: "yellow-1");
+    color: map-get($map: $colors, $key: "white-1");
+    .icon-arrow-btn-blue {
+      display: none;
+    }
+    .icon-arrow-btn-white {
+      display: block;
+    }
+  }
+}
+
+.btn-cta-content {
+  // background-color: map-get($map: $colors, $key: "white-1");
+  background-color: transparent;
+  color: map-get($map: $colors, $key: "blue-1");
+  border-radius: 999px;
+  padding: 13.25px 14.25px; // 3pixeles+ normal 3pixelesmenos
+  font-size: 20.467px;
+  transition: all 0.35s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border: 0.25px solid map-get($map: $colors, $key: "blue-1");
+  column-gap: 7px;
+  [class*="icon-arrow-btn-"] {
+    width: 6.087px;
+    // margin-bottom: calc(9.61px / 2);
+    margin-bottom: 1px;
+  }
+  .icon-arrow-btn-white {
+    display: none;
+  }
+  &:hover {
+    border-color: map-get($map: $colors, $key: "yellow-1");
+    background-color: map-get($map: $colors, $key: "yellow-1");
+    color: map-get($map: $colors, $key: "white-1");
+    .icon-arrow-btn-blue {
+      display: none;
+    }
+    .icon-arrow-btn-white {
+      display: block;
+    }
+  }
+}

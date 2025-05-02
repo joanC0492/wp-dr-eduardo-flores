@@ -14,6 +14,13 @@
   font-style: normal;
 }
 @font-face {
+  font-family: "AcuminVariableConceptLight";
+  src: url("../fonts/acumin-variable-concept/acumin-pro-light.woff2")
+    format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
   font-family: "AcuminVariableConcept";
   src: url("../fonts/acumin-variable-concept/Acumin-RPro.woff2") format("woff2");
   font-weight: 400;
@@ -27,8 +34,17 @@
   font-style: italic;
 }
 @font-face {
+  font-family: "AcuminVariableConceptMedium";
+  src: url("../fonts/acumin-variable-concept/acumin-variable-concept-medium.woff2")
+    format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
   font-family: "AcuminVariableConceptSemiBold";
-  src: url("../fonts/acumin-variable-concept/Acumin-RPro.woff2") format("woff2");
+  // src: url("../fonts/acumin-variable-concept/Acumin-RPro.woff2") format("woff2");
+  src: url("../fonts/acumin-variable-concept/acumin-pro-semibold.woff2")
+    format("woff2");
   font-weight: 600;
   font-style: normal;
 }
@@ -45,6 +61,15 @@
     format("woff2");
   font-weight: 700;
   font-style: italic;
+}
+
+@font-face {
+  font-family: "AcuminVariableConceptBlack";
+  src: url("../fonts/acumin-variable-concept/acumin-pro-black.woff2")
+    format("woff2");
+  // src: url("../fonts/acumin-variable-concept/Acumin-BdPro.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
 }
 
 /* ALTONE TRIAL */
@@ -159,6 +184,11 @@
   font-weight: 100;
   font-style: normal;
 }
+.acumin-variable-concept-light {
+  font-family: "AcuminVariableConceptLight", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
 .acumin-variable-concept {
   font-family: "AcuminVariableConcept", sans-serif;
   font-weight: 400;
@@ -169,12 +199,16 @@
   font-weight: 400;
   font-style: italic;
 }
-
-.acumin-variable-concept-semibold{
+.acumin-variable-concept-medium {
+  font-family: "AcuminVariableConceptMedium", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+.acumin-variable-concept-semibold {
   font-family: "AcuminVariableConceptSemiBold", sans-serif;
   font-weight: 600;
   font-style: normal;
-  text-shadow: 0.3px 0.3px 0 currentColor; // Por mientras :)
+  // text-shadow: 0.3px 0.3px 0 currentColor; // Por mientras :)
 }
 
 .acumin-variable-concept-bold {
@@ -186,6 +220,20 @@
   font-family: "AcuminVariableConceptBoldItalic", sans-serif;
   font-weight: 700;
   font-style: italic;
+}
+
+// .acumin-variable-concept-black {
+//   font-family: "AcuminVariableConceptBlack", sans-serif;
+//   font-weight: 900;
+//   font-style: normal;
+//   text-shadow: 1px 0 currentColor, -1px 0 currentColor, 0 1px currentColor,
+//     0 -1px currentColor, 1px 1px currentColor, -1px -1px currentColor,
+//     1px -1px currentColor, -1px 1px currentColor;
+// }
+.acumin-variable-concept-black {
+  font-family: "AcuminVariableConceptBlack", sans-serif;
+  font-weight: 900;
+  font-style: normal;
 }
 /*=========================================ALTONE TRIAL=========================================*/
 .altone-trial-regular {

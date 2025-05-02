@@ -5,6 +5,8 @@ $footer_descripcion = $footer_s['footer_descripcion'];
 $footer_informacion = $footer_s['footer_informacion'];
 $footer_cirugias = $footer_s['footer_cirugias'];
 $contacto = $footer_s['contacto'];
+$numero_whatsapp = $footer_s['numero_whatsapp'];
+$mensaje_whatsapp = $footer_s['mensaje_whatsapp'] ? $footer_s['mensaje_whatsapp'] : 'Hola, me gustaría agendar una cita. ¿Podrían brindarme más información, por favor?';
 ?>
 </main> <!-- <main> -->
 <footer class="bg-blue-1 py-4">
@@ -50,6 +52,20 @@ $contacto = $footer_s['contacto'];
     <p class="text-white-1 fs-5 altone-trial-bold lh-1 text-center">Dr. Eduardo Flores &copy; <?= date('Y'); ?></p>
   </div>
 </div>
+
+<?php if ($numero_whatsapp): ?>
+  <div class="whatsapp-button">
+    <a href="https://api.whatsapp.com/send?phone=<?= esc_html($numero_whatsapp) ?>&text=<?= esc_html($mensaje_whatsapp) ?>"
+      target="_blank" rel="noopener noreferrer" class="whatsapp-button__link">
+      <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/whatsapp.svg') ?>" alt="WhatsApp"
+        class="whatsapp-button__icon">
+      <div class="whatsapp-button__content text-white-1 hide-br show-lg-br">
+        <p class="whatsapp-button__text acumin-variable-concept-bold">¡Agenda tu<br> cita ahora!</p>
+        <span class="whatsapp-button__line"></span>
+      </div>
+    </a>
+  </div>
+<?php endif; ?>
 <?php wp_footer(); ?>
 </body>
 

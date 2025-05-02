@@ -22,12 +22,12 @@
   ?>
 
   <!-- Header principal -->
-  <div id="top-header" class="top-header bg-blue-1">
+  <div id="top-header" class="top-header bg-blue-1 fade-in-500">
     <div class="container-xxl h-100">
       <div class="row h-100 align-items-center">
         <div class="col-12">
           <div class="top-header__social d-flex align-items-center gap-4">
-            <p class="top-header__social-title text-white-1 montserrat-100"><?= esc_html($top_header_texto) ?></p>
+            <p class="top-header__social-title text-white-1 montserrat-400"><?= esc_html($top_header_texto) ?></p>
             <?php if (!empty($social_links)): ?>
               <ul class="top-header__social-list d-flex align-items-center gap-2">
                 <?php foreach ($social_links as $network): ?>
@@ -49,7 +49,7 @@
     </div>
   </div>
   <!-- sticky-top -->
-  <header id="header" class="header z-2 position-relative">
+  <header id="header" class="header z-2 position-relative fade-in-500">
     <nav class="navbar navbar-expand-lg py-0">
       <div class="container-xxl">
         <?php if (!empty($logo_header['guid'])): ?>
@@ -77,7 +77,7 @@
             )
           );
           ?>
-          <div>
+          <div class="ms-2 mb-2">
             <a href="<?= esc_url($header_boton_de_contacto) ?>" class="btn-cta-header acumin-variable-concept-bold"
               target="<?= esc_attr($contact_target) ?>" rel="noopener noreferrer">CONTÁCTANOS</a>
           </div>

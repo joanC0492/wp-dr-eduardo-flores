@@ -9,7 +9,18 @@
           while (have_posts()):
             the_post(); ?>
             <div class="col-md-6 mb-4">
-              <div class="card h-100 shadow-sm">
+              <?php
+              $data = [
+                'url' => get_permalink(),
+                'image_url' => has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'medium') : '',
+                'title' => get_the_title(),
+                'excerpt' => get_the_excerpt(),
+              ];
+              // Lo incluís y pasás las variables
+              set_query_var('card_data', $data);
+              get_template_part('template-parts/card');
+              ?>
+              <div class="card h-100 shadow-sm d-none">
                 <?php if (has_post_thumbnail()): ?>
                   <a href="<?php the_permalink(); ?>">
                     <?php the_post_thumbnail('medium', ['class' => 'card-img-top']); ?>
