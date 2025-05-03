@@ -79,7 +79,7 @@
           ?>
           <div class="ms-2 mb-2">
             <a href="<?= esc_url($header_boton_de_contacto) ?>" class="btn-cta-header acumin-variable-concept-bold"
-              target="<?= esc_attr($contact_target) ?>" rel="noopener noreferrer">CONTÁCTANOS</a>
+              rel="noopener noreferrer">CONTÁCTANOS</a>
           </div>
         </div>
       </div>

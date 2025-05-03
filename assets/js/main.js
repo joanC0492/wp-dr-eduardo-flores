@@ -69,6 +69,7 @@
 
   const initDOMReady = () => {
     console.log("DOM Ready!");
+    toggleStickyHeader();
     setActiveMenuItem();
   };
 

@@ -1,0 +1,34 @@
+body.single-cirugia,
+body.single-procedimiento {
+  .page-main {
+    &__h1 {
+      font-size: 51.09px;
+      color: map-get($map: $colors, $key: "blue-1");
+      font-family: "AcuminVariableConceptBold", sans-serif;
+      font-weight: 700;
+      font-style: normal;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    &__content {
+      p {
+        margin-bottom: 1.25rem;
+      }
+    }
+    &__video-title {
+      font-size: 37.16px;
+      line-height: 1.1;
+      font-family: "AcuminVariableConceptSemiBold", sans-serif;
+      font-weight: 600;
+      font-style: normal;
+      color: map-get($map: $colors, $key: "blue-1");
+    }
+    &__content-iframe {
+      iframe {
+        width: 440.9906px;
+        height: 331.7789px;
+        object-fit: cover;
+      }
+    }
+  }
+}

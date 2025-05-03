@@ -32,9 +32,39 @@ $titulo = get_post_meta($id, 'titulo', true);
 <!-- Busqueda -->
 <div id="blog-search" class="blog-search mt-4 mb-5">
   <form role="search" method="get" action="<?= esc_url(home_url('/')); ?>" class="d-flex justify-content-center">
-    <div class="input-group input-group-lg w-75">
-      <span class="input-group-text bg-white border-primary"><i class="bi bi-search text-primary"></i></span>
-      <input type="search" class="form-control border-primary rounded-end" placeholder="Buscar..."
+    <div class="blog-search__container input-group input-group-lg">
+      <button class="blog-search__btn">
+        <svg class="svg-icon-search" version="1.1" id="svg1" width="50.666016" height="50.673157"
+          viewBox="0 0 50.666017 50.673158" sodipodi:docname="WEB CIRUJANO_EDUARDO FLORES -- INK.ai"
+          xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+          xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+          <defs id="defs1">
+            <color-profile inkscape:label="sRGB IEC61966-2.1" name="sRGB-IEC61966-2.1"
+              xlink:href="data:application/vnd.iccprofile;base64,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"
+              id="color-profile1" />
+            <clipPath clipPathUnits="userSpaceOnUse" id="clipPath1397">
+              <path d="M 0,2288.309 H 1366 V 0 H 0 Z" transform="translate(-281.30808,-1745.2446)" id="path1397" />
+            </clipPath>
+          </defs>
+          <sodipodi:namedview id="namedview1" pagecolor="#505050" bordercolor="#eeeeee" borderopacity="1"
+            inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="0"
+            inkscape:deskcolor="#505050">
+            <inkscape:page x="9.0947856e-07" y="-7.4230888e-07" width="50.666016" height="50.673157" id="page2"
+              margin="0" bleed="0" />
+          </sodipodi:namedview>
+          <g id="layer-MC0" inkscape:groupmode="layer" inkscape:label="Capa 1"
+            transform="translate(-9848.8711,555.78655)">
+            <path id="path1852"
+              d="m 0,0 c 0.08,5.594 -4.731,10.282 -10.244,10.219 -5.685,-0.065 -10.181,-4.582 -10.22,-10.252 -0.038,-5.538 4.691,-10.24 10.254,-10.231 C -4.652,-10.254 0.102,-5.552 0,0 m -26.308,-1.084 v 2.079 c 0.031,0.254 0.065,0.508 0.093,0.762 0.278,2.445 1.09,4.702 2.39,6.787 2.467,3.957 6.072,6.256 10.577,7.224 0.661,0.142 1.339,0.2 2.01,0.296 h 2.078 c 0.058,-0.019 0.114,-0.051 0.173,-0.055 2.137,-0.149 4.143,-0.751 6.054,-1.712 3,-1.51 5.285,-3.742 6.862,-6.703 C 5.476,4.689 6.089,1.597 5.764,-1.682 5.527,-4.083 4.778,-6.309 3.514,-8.363 3.355,-8.622 3.188,-8.876 3.009,-9.156 3.138,-9.271 3.244,-9.357 3.34,-9.453 c 2.433,-2.431 4.864,-4.862 7.294,-7.294 0.148,-0.149 0.292,-0.303 0.425,-0.466 1.255,-1.532 0.556,-3.946 -1.33,-4.561 -1.216,-0.396 -2.247,-0.074 -3.143,0.826 -2.46,2.472 -4.936,4.929 -7.402,7.396 -0.094,0.094 -0.15,0.226 -0.219,0.332 -0.325,-0.206 -0.554,-0.352 -0.784,-0.496 -2.244,-1.409 -4.696,-2.178 -7.333,-2.344 -3.447,-0.217 -6.643,0.594 -9.581,2.412 -3.993,2.471 -6.313,6.091 -7.282,10.63 -0.136,0.636 -0.197,1.289 -0.293,1.934"
+              style="fill:#0090b7 icc-color(sRGB-IEC61966-2, 0.1, 0, 0.56498718, 0.71798706);fill-opacity:1;fill-rule:nonzero;stroke:none"
+              transform="matrix(1.3333333,0,0,-1.3333333,9883.9485,-534.36789)" clip-path="url(#clipPath1397)"
+              inkscape:export-filename="path1852.svg" inkscape:export-xdpi="72.000923"
+              inkscape:export-ydpi="72.000923" />
+          </g>
+        </svg>
+      </button>
+      <input type="search" class="blog-search__input form-control" placeholder="Buscar..."
         value="<?= get_search_query(); ?>" name="s" />
     </div>
   </form>
@@ -43,11 +73,13 @@ $titulo = get_post_meta($id, 'titulo', true);
 
 <section class="blog-posts mt-5 ---">
   <div class="container">
-    <div class="row">
+    <!-- <div class="row"> -->
+    <div class="blog-posts__container-cards d-grid gap-4 justify-content-center mt-5">
       <?php if (have_posts()): ?>
         <?php while (have_posts()): ?>
           <?php the_post(); ?>
-          <div class="col-lg-4">
+          <!-- <div class="col-lg-4"> -->
+          <div class="">
             <?php
             $data = [
               'url' => get_permalink(),
@@ -80,7 +112,7 @@ $titulo = get_post_meta($id, 'titulo', true);
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-          <h2 class="page-questions__title text-blue-1 acumin-variable-concept-bold">Preguntas Frecuentes</h2>
+          <h2 class="page-questions__title d-inline-block text-blue-1 acumin-variable-concept-bold line-title-md">Preguntas Frecuentes</h2>
         </div>
         <div class="col-10 mx-auto">
           <?php set_query_var('preguntas', $preguntas); ?>

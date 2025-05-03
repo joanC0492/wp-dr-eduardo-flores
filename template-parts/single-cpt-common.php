@@ -18,7 +18,7 @@
     $is_slider = !empty($carrusel_imagenes) && is_array($carrusel_imagenes) && count($carrusel_imagenes) > 1;
     $preguntas = get_post_meta($id, 'preguntas', false);
     ?>
-    <section id="page-main" class="page-main">
+    <section id="page-main" class="page-main pb-5">
       <div class="container">
         <div class="row">
           <div class="col-5">
@@ -68,15 +68,17 @@
             <div class="page-main__h1-parent">
               <h1 class="page-main__h1 acumin-variable-concept-bold text-blue-1"><?= $titulo ? $titulo : $title ?></h1>
             </div>
-            <div class="page-main__content text-gray-1 acumin-variable-concept-semibold">
+            <div class="page-main__content">
               <?= $content ?>
             </div>
             <!-- SINGLE-BEGIN -->
             <?php if (!empty($video)): ?>
-              <div class="page-main__video text-gray-1 acumin-variable-concept-semibold">
-                <div class="d-flex align-items-center">
+              <div class="page-main__video">
+                <div class="d-flex gap-1 align-items-center justify-content-end me-4">
                   <p class="page-main__video-title">Reproduce el video</p>
-                  <?= wp_oembed_get($video) ?>
+                  <div class="page-main__content-iframe">
+                    <?= wp_oembed_get($video) ?>
+                  </div>
                 </div>
               </div>
             <?php endif; ?>
@@ -87,10 +89,10 @@
     </section>
 
     <?php if (!empty($preguntas)): ?>
-      <section id="page-questions" class="page-questions py-5">
+      <section id="page-questions" class="page-questions pb-5">
         <div class="container">
           <div class="row">
-            <div class="col-12 mx-auto">
+            <div class="col-10 mx-auto">
               <?php set_query_var('preguntas', $preguntas); ?>
               <?php get_template_part('template-parts/faq-section'); ?>
             </div>

@@ -1,0 +1,65 @@
+.page-slug-dr-manuel-eduardo-flores-vilchez {
+  .page-main {
+    padding-bottom: 4rem;
+    p {
+      margin-bottom: 1.25rem;
+    }
+    &__h1 {
+      font-size: 51.09px;
+      color: map-get($map: $colors, $key: "blue-1");
+      font-family: "AcuminVariableConceptBold", sans-serif;
+      font-weight: 700;
+      font-style: normal;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    &__h2 {
+      font-size: 19.53px;
+      line-height: 1.2;
+      color: map-get($map: $colors, $key: "sky-blue-1");
+      font-family: "AcuminVariableConceptSemiBold", sans-serif;
+      font-weight: 600;
+      font-style: normal;
+    }
+    &__h3 {
+      font-size: 19.53px;
+      line-height: 1.2;
+      color: map-get($map: $colors, $key: "blue-1");
+      font-family: "AcuminVariableConcept", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      margin-bottom: 1rem;
+      ~ p {
+        margin-bottom: 1.25rem;
+      }
+    }
+    ul {
+      // padding-left: 25px;
+      li {
+        border-bottom: 1px solid rgba(128, 128, 128, 0.5215686275);
+        padding-block: 0.5rem;
+        padding-left: 1.5rem;
+        line-height: 1.25;
+        position: relative;
+        color: map-get($map: $colors, $key: "gray-1");
+        &:nth-last-of-type(1) {
+          border-bottom: none;
+        }
+        &::before {
+          content: url("https://dreduardoflorescirugia.pe/wp-content/themes/wp-theme-jc-template/assets/images/icon-list-blue.webp");
+          position: absolute;
+          left: 0;
+          top: 8px;
+          // width: 0.5rem;
+          // height: 0.5rem;
+        }
+      }
+    }
+  }
+  .mySwiper {
+    margin-top: 1rem;
+    .swiper-wrapper {
+      justify-content: center;
+    }
+  }
+}

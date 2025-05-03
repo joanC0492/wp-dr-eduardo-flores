@@ -5,11 +5,13 @@
     <div class="row">
       <div class="col-lg-8">
         <h1 class="text-center mb-4">Resultados de búsqueda: "<?= get_search_query(); ?>"</h1>
-        <div class="row">
+        <!-- <div class="row"> -->
+        <div class="search-results__container-cards d-grid gap-4 justify-content-center">
           <?php if (have_posts()): ?>
             <?php while (have_posts()):
               the_post(); ?>
-              <div class="col-lg-6 mb-4">
+              <!-- <div class="col-lg-6 mb-4"> -->
+              <div class="">
                 <?php
                 $data = [
                   'url' => get_permalink(),
@@ -23,15 +25,23 @@
                 ?>
               </div>
             <?php endwhile; ?>
+            <?php
+            the_posts_pagination([
+              'mid_size' => 2,
+              'prev_text' => __('« Anterior', 'textdomain'),
+              'next_text' => __('Siguiente »', 'textdomain'),
+              'screen_reader_text' => 'Navegación de entradas para la busqueda',
+            ]);
+            ?>
           <?php else: ?>
             <div class="col-12 text-center">
               <p>No se encontraron resultados.</p>
             </div>
           <?php endif; ?>
         </div>
-        <div class="mt-4 d-flex justify-content-center">
+        <!-- <div class="mt-4 d-flex justify-content-center">
           <?php the_posts_pagination(); ?>
-        </div>
+        </div> -->
       </div>
       <div class="col-lg-4">
         <?php get_sidebar(); ?>

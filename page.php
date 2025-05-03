@@ -73,7 +73,7 @@
       </div>
     </section>
 
-    <section id="page-questions" class="page-questions">
+    <!-- <section id="page-questions" class="page-questions">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
@@ -81,7 +81,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <?php if (!empty($seccion_agenda)): ?>
       <?= do_shortcode('[seccion_agendar_cita]'); ?>

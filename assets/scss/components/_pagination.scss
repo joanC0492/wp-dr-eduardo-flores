@@ -1,0 +1,19 @@
+.pagination {
+  grid-column: 1 / -1;
+  justify-content: end;
+  margin-top: 1rem;
+  .page-numbers {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 12px;
+    background-color: #eee;
+    border-radius: 5px;
+    text-decoration: none;
+    color: map-get($map: $colors, $key: "blue-1");
+  }
+
+  .page-numbers.current {
+    background-color: map-get($map: $colors, $key: "blue-1");
+    color: #fff;
+  }
+}

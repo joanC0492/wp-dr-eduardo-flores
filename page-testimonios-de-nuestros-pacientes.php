@@ -18,6 +18,7 @@
     // echo "<pre>";
     // print_r($testimonios);
     // echo "</pre>";
+
     ?>
     <section id="page-main" class="page-main">
       <div class="container">
@@ -28,7 +29,7 @@
                 <h1 class="page-main__h1"><?= $titulo ? $titulo : $title ?></h1>
               </div>
             </div>
-            <div class="mt-5 text-center">
+            <div class="mt-4 text-center">
               <div class="page-main__content">
                 <?= $content ?>
               </div>
@@ -37,7 +38,24 @@
               <div class="row my-5">
                 <?php foreach ($testimonios as $testimonio): ?>
                   <div class="col-lg-4">
-                    <?= wp_oembed_get($testimonio) ?>
+                    <?php
+                    // echo wp_oembed_get($testimonio);
+                    ?>
+                    <?php
+                    $embed_url = wp_oembed_get($testimonio);
+                    // Extraer la URL del src del iframe
+                    preg_match('/src="([^"]+)"/', $embed_url, $matches);
+                    $src = $matches[1] ?? '';
+                    ?>
+                    <div class="video-wrapper" data-src="<?= esc_url($src) ?>">
+                      <div class="video-thumbnail" style="position: relative; cursor: pointer;">
+                        <img src="https://img.youtube.com/vi/<?= esc_html(getYouTubeId($src)) ?>/hqdefault.jpg"
+                          class="img-fluid" />
+                        <div class="play-button"
+                          style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:3rem;color:white;">
+                          ▶</div>
+                      </div>
+                    </div>
                   </div>
                 <?php endforeach; ?>
               </div>
@@ -55,3 +73,22 @@
 <?php endif; ?>
 
 <?php get_footer(); ?>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const wrappers = document.querySelectorAll(".video-wrapper");
+    wrappers.forEach(wrapper => {
+      wrapper.addEventListener("click", () => {
+        const iframe = document.createElement("iframe");
+        iframe.setAttribute("src", wrapper.dataset.src + "&autoplay=1");
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute("allowfullscreen", "");
+        iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+        iframe.className = "w-100";
+        wrapper.innerHTML = "";
+        wrapper.appendChild(iframe);
+      });
+    });
+  });
+</script>

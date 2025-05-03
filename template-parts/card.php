@@ -1,7 +1,8 @@
 <?php
 $data = get_query_var('card_data', []);
 $url = $data['url'] ?? '#';
-$image_url = $data['image_url'] ?? '';
+// $image_url = $data['image_url'] ?? '';
+$image_url = $data['image_url'] ? $data['image_url'] : get_template_directory_uri() . '/assets/images/no-thumbnail.webp';
 $title = $data['title'] ?? '';
 $excerpt = $data['excerpt'] ?? '';
 ?>
@@ -19,5 +20,6 @@ $excerpt = $data['excerpt'] ?? '';
     </div>
   </article>
   <div class="card-blog__content p-4 text-gray-3 bg-gray-4 rounded-4 mt-3">
-    <?= esc_html(mb_strimwidth($excerpt, 0, 104, '...')); ?></div>
+    <?= esc_html(mb_strimwidth($excerpt, 0, 104, '...')); ?>
+  </div>
 </a>

@@ -249,3 +249,29 @@ function limitar_busqueda_a_entradas($query)
   }
 }
 add_action('pre_get_posts', 'limitar_busqueda_a_entradas');
+
+
+// Para la carga de videos en Pagina de Testimonios
+function getYouTubeId($url)
+{
+  preg_match('/\/embed\/([^?]+)/', $url, $matches);
+  return $matches[1] ?? '';
+}
+
+// Permite mostrar 3 Elementos en el home.php
+function custom_posts_per_page_home($query)
+{
+  if ($query->is_home() && $query->is_main_query()) {
+    $query->set('posts_per_page', 3);
+  }
+}
+add_action('pre_get_posts', 'custom_posts_per_page_home');
+
+// Permite mostrar 6 Elementos en el category y el search
+function custom_posts_per_page_category($query)
+{
+  if (($query->is_category() || $query->is_search()) && $query->is_main_query()) {
+    $query->set('posts_per_page', 6);
+  }
+}
+add_action('pre_get_posts', 'custom_posts_per_page_category');

@@ -1,0 +1,41 @@
+.page-slug-blog {
+  .blog-posts {
+    &__container-cards {
+      grid-template-columns: repeat(3, 312px);
+    }
+  }
+
+  .blog-search {
+    &__container {
+      border: 1px solid map-get($map: $colors, $key: "blue-1");
+      border-radius: 50px;
+      max-width: 922px;
+      width: 100%;
+    }
+    &__btn {
+      border: none;
+      background-color: transparent;
+      padding-left: 25px;
+    }
+    &__input {
+      border: none;
+      padding-block: 17px;
+      background-color: transparent;
+      font-size: 30px;
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  .svg-icon-search {
+    width: 38px;
+    fill: map-get($map: $colors, $key: "sky-blue-1");
+  }
+
+  .page-questions {
+    &__title {
+      font-size: 40px;
+    }
+  }
+}
