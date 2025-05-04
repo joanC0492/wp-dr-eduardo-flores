@@ -71,7 +71,7 @@
             <div class="home-cintillo__content d-flex justify-content-center align-items-center">
               <p class="home-cintillo__title text-blue-1 acumin-variable-concept-bold">¿Dónde te operamos?</p>
               <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/arrow-right.svg') ?>" alt="Arrow Right"
-                class="home-cintillo__arrow-right" width="21">
+                class="home-cintillo__arrow-right d-none d-md-block" width="21">
               <ul class="home-cintillo__list d-flex justify-content-center align-items-center">
                 <?php foreach ($images_cintillo as $image): ?>
                   <li class="home-cintillo__item d-flex justify-content-center align-items-center">
@@ -114,14 +114,14 @@
       ]
     ];
     ?>
-    <section id="home-content" class="home-content py-5">
+    <section id="home-content" class="home-content py-4 py-md-5">
       <div class="container">
         <div class="row">
-          <div class="col-lg-6 text-center mb-5 px-6">
+          <div class="col-lg-6 text-center mb-5 px-4 px-xxl-6 order-2 order-lg-1">
             <img src="<?= esc_url($image_cirujano_url) ?>" alt="<?= esc_attr($image_cirujano_text) ?>"
               class="img-fluid w-100 rounded-5 home-content__img-main" />
           </div>
-          <div class="col-lg-6 text-center mb-5">
+          <div class="col-lg-6 text-center mb-5 order-1 order-lg-2">
             <div>
               <h2 class="home-content__profesion text-sky-blue-1 acumin-variable-concept-bold">
                 <?= $home_content["title_h2"] ?>
@@ -172,7 +172,7 @@
     </section>
 
     <!-- ESTAMOS CONTIGO -->
-    <section class="surgery-process bg-sky-blue-2 py-6"
+    <section class="surgery-process bg-sky-blue-2 pb-6 pt-0 py-lg-6"
       style="background-image: url(<?= esc_url(get_template_directory_uri() . '/assets/images/backgroun-surgery.webp') ?>)">
       <div class="container-fluid g-0">
         <div
@@ -180,12 +180,12 @@
           class="surgery-process__row row g-0">
           <!-- IZQUIERDA: círculo y texto -->
           <div class="surgery-process__left col-lg-5 d-flex align-items-center justify-content-start position-relative">
-            <div class="surgery-process__circle text-center">
+            <div class="surgery-process__circle text-center pt-5 pt-md-6 pt-lg-0">
               <div class="surgery-process__icon-corazon mb-3">
                 <img src="<?= esc_url(get_template_directory_uri() . "/assets/images/icon-corazon.webp") ?>"
                   alt="Icono de Corazon" width="88.2499" class="surgery-process__icon-corazon-img img-fluid me-9" />
               </div>
-              <h2 class="surgery-process__title acumin-variable-concept-bold text-white-1 lh-1 text-start">
+              <h2 class="surgery-process__title acumin-variable-concept-bold text-white-1 lh-1 text-start hide-br show-md-br">
                 <span class="text-yellow-1 highlight">¡Estamos contigo,</span><br />
                 en cada etapa de tu cirugía!
               </h2>
@@ -200,9 +200,9 @@
           </div>
 
           <!-- DERECHA: cards -->
-          <div class="col-lg-7 p-5 surgery-process__right">
+          <div class="col-lg-7 p-3 p-md-5 surgery-process__right">
             <!-- <div class="row gy-4"> -->
-            <div class="surgery-process__card-content d-flex flex-wrap gap-4">
+            <div class="surgery-process__card-content d-flex flex-wrap gap-4 justify-content-center justify-content-lg-start">
               <!-- Card 1 -->
               <!-- <div class="col-12"> -->
               <div class="surgery-process__card bg-white-1">
@@ -249,12 +249,12 @@
 
     <!--  NUESTROS PACIENTES NOS RESPALDAN -->
     <?php if (!empty($testimonios)): ?>
-      <section id="testimonials" class="testimonials py-6">
+      <section id="testimonials" class="testimonials py-4 py-md-6">
         <div class="container">
           <div class="row testimonials__content">
             <!-- Testimonio principal -->
             <div class="col-lg-4">
-              <h2 class="testimonials__title text-start text-blue-1 acumin-variable-concept-bold lh-1 mt-5"><span
+              <h2 class="testimonials__title hide-br show-md-br text-start text-blue-1 acumin-variable-concept-bold lh-1 mt-4 mt-md-5"><span
                   class="text-sky-blue-1">Nuestros pacientes,</span> <br>nos respaldan</h2>
               <div class="testimonials__card d-flex flex-row gap-3 mt-4">
                 <div class="testimonials__img-container">
@@ -269,10 +269,10 @@
               </div>
             </div>
             <!-- Videos (iframes de YouTube) -->
-            <div class="col-lg-8">
+            <div class="col-lg-8 mt-4 mt-lg-0">
               <div class="row">
                 <?php foreach ($testimonios as $testimonio): ?>
-                  <div class="col-lg-4 testimonials__video">
+                  <div class="col-lg-4 mb-4 mb-lg-0 testimonials__video">
                     <div class="ratio ratio-16x9">
                       <?= wp_oembed_get($testimonio) ?>
                     </div>
@@ -280,8 +280,8 @@
                 <?php endforeach; ?>
               </div>
               <div class="row">
-                <div class="col-12 text-end mt-4">
-                  <div class="me-6">
+                <div class="col-12 text-end mt-lg-4 text-center text-md-start">
+                  <div class="me-0 me-md-6">
                     <a href="<?= esc_url(home_url('/testimonios-de-nuestros-pacientes')); ?>"
                       class="testimonials__link acumin-variable-concept-bold btn-cta-content">Ver más
                       <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/icon-arrow-btn-blue.webp') ?>"
@@ -355,13 +355,14 @@
         </div>
       <?php endif; ?>
       <?php if (!empty($preguntas)): ?>
-        <section id="page-questions" class="page-questions mt-6">
+        <section id="page-questions" class="page-questions mt-5 mt-md-6">
           <div class="container">
             <div class="row">
               <div class="col-12 text-center">
-                <h2 class="page-questions__title d-inline-block line-title-md text-blue-1 acumin-variable-concept-bold">Preguntas Frecuentes</h2>
+                <h2 class="page-questions__title d-inline-block line-title-md text-blue-1 acumin-variable-concept-bold">
+                  Preguntas Frecuentes</h2>
               </div>
-              <div class="col-10 mx-auto">
+              <div class="col-12 col-lg-10 mx-auto">
                 <?php set_query_var('preguntas', $preguntas); ?>
                 <?php get_template_part('template-parts/faq-section'); ?>
               </div>

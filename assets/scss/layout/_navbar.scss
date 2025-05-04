@@ -67,7 +67,7 @@ $padding-inline: 16px;
         // left: 0;
         // width: 100%;
         left: 14px;
-        width: calc(100% + -14px + -14px);        
+        width: calc(100% + -14px + -14px);
         background-color: transparent;
         border-radius: 4px;
         transition: all $transition-duration;
@@ -247,6 +247,22 @@ $padding-inline: 16px;
     > .nav-link {
       // color: #063c5b !important;
       font-size: 23px;
+      @media (max-width: 1399px) {
+        font-size: 20px;
+      }
+      // 992 and 1199
+      @media (max-width: 1199px) {
+        font-size: 18px;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+      }
+    }
+  }
+}
+#header {
+  nav.navbar {
+    @media (max-width: 991px) {
+      background-color: map-get($map: $colors, $key: "white-1");
     }
   }
 }

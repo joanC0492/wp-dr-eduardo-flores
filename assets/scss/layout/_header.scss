@@ -1,7 +1,23 @@
 .header {
   // height: 172px;
   height: 140px;
-  transition: all .5s;
+  transition: all 0.5s;
+  &__logo {
+    // 992 and 1199
+    @media (max-width: 1199px) {
+      width: 170px;
+    }
+    @media (max-width: 767px) {
+      width: 160px;
+    }
+  }
+  // 992 and 1199
+  @media (max-width: 1199px) {
+    height: 108px;
+  }
+  @media (max-width: 767px) {
+    height: auto;
+  }
 }
 
 .site-header {
@@ -37,8 +53,8 @@
   // }
 }
 
-// 
-.app{
+//
+.app {
   @extend .acumin-variable-concept;
   font-size: 18px;
 }

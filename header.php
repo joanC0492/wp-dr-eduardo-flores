@@ -54,9 +54,9 @@
       <div class="container-xxl">
         <?php if (!empty($logo_header['guid'])): ?>
           <a href="<?= esc_url(home_url('/')) ?>"
-            class="navbar-brand py-4 <?= is_front_page() ? 'pointer-events-none' : '' ?>">
-            <img src="<?= esc_url($logo_header['guid']) ?>" alt="<?= $logo_header["post_title"] ?>" class="img-fluid"
-              width="206" />
+            class="navbar-brand py-3 py-xxl-4 <?= is_front_page() ? 'pointer-events-none' : '' ?>">
+            <img src="<?= esc_url($logo_header['guid']) ?>" alt="<?= $logo_header["post_title"] ?>"
+              class="img-fluid header__logo" width="206" />
           </a>
         <?php else: ?>
           <a class="navbar-brand" href="#">Navbar</a>
@@ -77,7 +77,7 @@
             )
           );
           ?>
-          <div class="ms-2 mb-2">
+          <div class="ms-0 mb-3 ms-lg-2 mb-lg-2">
             <a href="<?= esc_url($header_boton_de_contacto) ?>" class="btn-cta-header acumin-variable-concept-bold"
               rel="noopener noreferrer">CONTÁCTANOS</a>
           </div>

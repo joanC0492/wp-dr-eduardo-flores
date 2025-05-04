@@ -7,6 +7,9 @@
   // font-family: Arial, sans-serif;
   &__title {
     font-size: 52.2813px;
+    @media (max-width: 767px) {
+      font-size: 38px;
+    }
   }
 
   // &__btn {
@@ -28,6 +31,9 @@
 .page-questions {
   &__accordion-button {
     font-size: 21px;
+    @media (max-width: 767px) {
+      font-size: 18px;
+    }
   }
   &__accordion-button {
     padding-block: 10.5px;

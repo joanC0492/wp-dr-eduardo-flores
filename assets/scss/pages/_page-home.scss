@@ -1,39 +1,84 @@
 .home-hero {
   margin-top: -172px;
   margin-top: -140px;
-  // position: relative;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  // height: 973px;
-  // height: calc(100vh + -36px + -32px);
   height: calc(100vh + -36px);
   max-height: 973px;
 
   .wp-block-cover {
     min-height: 500px;
   }
-  // h1 {
-  //   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  // }
   &__title {
     font-size: 62.661px;
     display: flex;
     flex-direction: column;
     line-height: 1;
+    .line-title-lg {
+      &::before {
+        @media (max-width: 767px) {
+          display: none;
+        }
+      }
+    }
+    @media (max-width: 767px) {
+      font-size: 40px;
+    }
   }
   &__content {
+  }
+  // 992 and 1199
+  @media (max-width: 1199px) {
+    margin-top: -108px;
+  }
+  @media (max-width: 767px) {
+    margin-top: 0;
+    height: calc(100vh - 36px - 103px);
   }
 }
 .home-cintillo {
   &__content {
     gap: 35px;
+    @media (max-width: 1399px) {
+      gap: 25px;
+    }
+    @media (max-width: 991px) {
+      gap: 15px;
+    }
+    @media (max-width: 767px) {
+      flex-direction: column;
+      gap: 0;
+    }
   }
   &__list {
     gap: 18px;
+    //
+    @media (max-width: 1199px) {
+      width: 100%;
+      max-width: 550px;
+    }
+    @media (max-width: 991px) {
+      max-width: 410px;
+    }
+  }
+  &__arrow-right {
+    //
+    @media (max-width: 1199px) {
+      width: 18px;
+    }
+    @media (max-width: 991px) {
+      width: 12px;
+    }
   }
   &__title {
     font-size: 40.3855px;
+    @media (max-width: 1399px) {
+      font-size: 30px;
+    }
+    @media (max-width: 991px) {
+      font-size: 23px;
+    }
   }
 }
 
@@ -51,12 +96,21 @@
     }
     &__profesion {
       font-size: 27.5175px;
+      @media (max-width: 767px) {
+        font-size: 20px;
+      }
     }
     &__title {
       font-size: 51.1476px;
+      @media (max-width: 767px) {
+        font-size: 38px;
+      }
     }
     &__list-esp-item {
       font-size: 23.2996px;
+      @media (max-width: 767px) {
+        font-size: 18px;
+      }
     }
     &__list-logo-txt {
       font-size: 9.8038px;
@@ -83,15 +137,31 @@
       background-size: contain;
       background-repeat: no-repeat;
       background-position: left center;
+      @media (max-width: 991px) {
+        background-position: 0px -395px;
+      }
     }
     &__circle {
       $ml: 35px;
       margin-left: $ml;
       max-width: calc(513px - $ml);
       width: 100%;
+      @media (max-width: 991px) {
+        padding: 1.5rem;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+      }
+      @media (max-width: 767px) {
+        margin-left: 0;
+        background-color: map-get($map: $colors, $key: "blue-1");
+      }
     }
     &__title {
       font-size: 52.4609px;
+      @media (max-width: 767px) {
+        font-size: 38px;
+      }
     }
     &__subtitle {
     }
@@ -106,14 +176,25 @@
     &__card-item {
       font-size: 21px;
       line-height: 1.25;
+      @media (max-width: 767px) {
+        font-size: 18px;
+      }
     }
     &__card-content {
       .surgery-process__card {
         &:nth-of-type(1) {
           margin-left: 15px;
+          //
+          @media (max-width: 1199px) {
+            margin-left: 0;
+          }
         }
         &:nth-of-type(2) {
           margin-left: 90px;
+          //
+          @media (max-width: 1199px) {
+            margin-left: 0;
+          }
         }
         &:nth-of-type(3) {
         }
@@ -124,19 +205,19 @@
       color: $white;
       // min-height: 100vh;
 
-      .surgery-process__circle {
-        // width: 400px;
-        // height: 400px;
-        // background: $blue-dark;
-        // border: 20px solid lighten($blue-dark, 15%);
-        // border-radius: 50%;
-        // display: flex;
-        // flex-direction: column;
-        // justify-content: center;
-        // align-items: center;
-        // padding: 2rem;
-        // text-align: center;
-      }
+      // .surgery-process__circle {
+      // width: 400px;
+      // height: 400px;
+      // background: $blue-dark;
+      // border: 20px solid lighten($blue-dark, 15%);
+      // border-radius: 50%;
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: center;
+      // align-items: center;
+      // padding: 2rem;
+      // text-align: center;
+      // }
 
       // .surgery-process__icon i {
       //   font-size: 2rem;
@@ -194,23 +275,23 @@
       }
     }
     // Responsivo: reducir círculo en móviles
-    @media (max-width: 768px) {
-      &__left {
-        .surgery-process__circle {
-          width: 280px;
-          height: 280px;
-          padding: 1.5rem;
-        }
+    // @media (max-width: 768px) {
+    //   &__left {
+    //     .surgery-process__circle {
+    //       width: 280px;
+    //       height: 280px;
+    //       padding: 1.5rem;
+    //     }
 
-        .surgery-process__title {
-          font-size: 1.2rem;
-        }
-      }
+    //     .surgery-process__title {
+    //       font-size: 1.2rem;
+    //     }
+    //   }
 
-      &__right {
-        padding: 2rem 1rem;
-      }
-    }
+    //   &__right {
+    //     padding: 2rem 1rem;
+    //   }
+    // }
   }
 
   //
@@ -219,11 +300,10 @@
     background-color: #f8f9fa;
 
     &__title {
-      // text-align: center;
-      // margin-bottom: 3rem;
       font-size: 59.0828px;
-      // color: #333;
-      // font-weight: 700;
+      @media (max-width: 767px) {
+        font-size: 40px;
+      }
     }
 
     &__content {
@@ -287,9 +367,19 @@
   .latest-posts {
     &__title {
       font-size: 40px;
+      @media (max-width: 767px) {
+        font-size: 30px;
+      }
     }
     &__container-cards {
       grid-template-columns: repeat(3, 312px);
+      //
+      @media (max-width: 1199px) {
+        grid-template-columns: repeat(2, 312px);
+      }
+      @media (max-width: 767px) {
+        grid-template-columns: repeat(1, 312px);
+      }
     }
     &__cta {
       padding-inline: 24px;
@@ -298,7 +388,13 @@
 
   .page-questions {
     &__title {
-      font-size: 40px;
-    }
+      font-size: 40px;      
+      &::before {
+        display: none;
+      }
+      @media(max-width: 767px){
+        font-size: 30px;
+      }
+    }    
   }
 }

@@ -30,6 +30,17 @@
     background-color: map-get($map: $colors, $key: "yellow-1");
     text-decoration: none;
   }
+  @media (max-width: 1399px) {
+    font-size: 22px;
+  }
+  // 992 and 1199
+  @media (max-width: 1199px) {
+    font-size: 18px;
+  }
+  @media (max-width: 991px) {
+    max-width: 218px;
+    width: 100%;
+  }
 }
 
 .btn-cta-agendar-cita {
@@ -40,7 +51,7 @@
   font-size: 45.0353px;
   transition: all 0.35s;
   text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
@@ -52,6 +63,9 @@
   }
   .icon-arrow-btn-white {
     display: none;
+  }
+  @media (max-width: 767px) {
+    font-size: 30px;
   }
   &:hover {
     border-color: map-get($map: $colors, $key: "yellow-1");
