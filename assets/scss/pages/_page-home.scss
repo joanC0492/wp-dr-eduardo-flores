@@ -388,13 +388,13 @@
 
   .page-questions {
     &__title {
-      font-size: 40px;      
-      &::before {
-        display: none;
-      }
-      @media(max-width: 767px){
+      font-size: 40px;
+      @media (max-width: 767px) {
         font-size: 30px;
+        &::before {
+          display: none;
+        }
       }
-    }    
+    }
   }
 }

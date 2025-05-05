@@ -19,6 +19,18 @@
   $social_links = $header_settings['social_links'];
   $header_boton_de_contacto = $header_settings['header_boton_de_contacto'];
   $contact_target = trim($header_boton_de_contacto) === '#0' ? '_self' : '_blank';
+
+  $locations = get_nav_menu_locations(); // Obtiene todas las ubicaciones  
+  $menu_id = $locations['header_menu'];  // Obtiene el ID del menú asignado a 'header_menu'  
+  $menu_items = wp_get_nav_menu_items($menu_id); // Ahora sí, trae los ítems  
+  // echo "<pre>";
+  // print_r($menu_items);
+  // echo "</pre>";
+  // Organiza por jerarquía
+  $menu_tree = [];
+  foreach ($menu_items as $item) {
+    $menu_tree[$item->menu_item_parent][] = $item;
+  }
   ?>
 
   <!-- Header principal -->
@@ -50,7 +62,7 @@
   </div>
   <!-- sticky-top -->
   <header id="header" class="header z-2 position-relative fade-in-500">
-    <nav class="navbar navbar-expand-lg py-0">
+    <nav class="navbar navbar-expand-lg py-0 d-none d-lg-flex">
       <div class="container-xxl">
         <?php if (!empty($logo_header['guid'])): ?>
           <a href="<?= esc_url(home_url('/')) ?>"
@@ -82,7 +94,53 @@
               rel="noopener noreferrer">CONTÁCTANOS</a>
           </div>
         </div>
+
       </div>
     </nav>
+
+    <?php
+    // Función que solo genera HTML desde un árbol ya procesado
+    function render_bem_menu($menu_tree, $logo_header)
+    {
+      function build_menu($parent_id, $menu, $depth = 0)
+      {
+        if (!isset($menu[$parent_id]))
+          return '';
+
+        $output = '<ul class="menu__list' . ($depth > 0 ? ' menu__list--submenu' : '') . '">';
+        foreach ($menu[$parent_id] as $item) {
+          $has_children = isset($menu[$item->ID]);
+          $is_active = in_array('current-menu-item', $item->classes) ? ' menu__item--active' : '';
+          $output .= '<li class="menu__item' . ($has_children ? ' menu__item--has-children' : '') . $is_active . '">';
+          $output .= '<a href="' . esc_url($item->url) . '" class="menu__link">' . esc_html($item->title) . '</a>';
+
+          if ($has_children) {
+            $output .= '<button class="menu__toggle" aria-expanded="false" aria-label="Toggle submenu"></button>';
+            $output .= build_menu($item->ID, $menu, $depth + 1);
+          }
+
+          $output .= '</li>';
+        }
+        $output .= '</ul>';
+        return $output;
+      }
+      echo '<div id="menu-mobile">';
+      echo '  <nav class="menu navbar d-lg-none" aria-label="Main navigation">';
+      echo '    <div class="container-fluid">';
+      echo '      <a class="navbar-brand py-3" href="' . esc_url(home_url('/')) . '">';
+      echo '        <img src="' . esc_url($logo_header['guid']) . '" alt="' . esc_attr($logo_header['post_title']) . '" class="img-fluid" width="156" />';
+      echo '      </a>';
+      echo '        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContentMobile" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>';
+      echo '        <div class="collapse navbar-collapse" id="navbarSupportedContentMobile">';
+      echo build_menu(0, $menu_tree); // Usa $menu_tree que ya tienes armado
+      echo '        </div>';
+      echo '    </div>';
+      echo '  </nav>';
+      echo '</div>';
+    }
+    // Llama a la función pasándole el árbol
+    render_bem_menu($menu_tree, $logo_header);
+    ?>
+
   </header>
   <main id="app" class="app">

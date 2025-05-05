@@ -1,0 +1,121 @@
+.page-slug-libro-de-reclamaciones {
+  > * {
+    font-family: "AcuminVariableConcept", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  form {
+    text-align: left;
+  }
+  input[type="text"],
+  [type="tel"],
+  [type="email"],
+  [type="number"],
+  textarea,
+  select {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    &:focus {
+      color: var(--bs-body-color);
+      background-color: var(--bs-body-bg);
+      border-color: #86b7fe;
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+    &::placeholder {
+      color: var(--bs-secondary-color);
+      opacity: 1;
+    }
+  }
+  div:has(> [type="submit"]) {
+    text-align: center;
+  }
+  [type="submit"] {
+    --bs-btn-padding-x: 0.75rem;
+    --bs-btn-padding-y: 0.375rem;
+    --bs-btn-font-family: ;
+    --bs-btn-font-size: 1rem;
+    --bs-btn-font-weight: 400;
+    --bs-btn-line-height: 1.5;
+    --bs-btn-color: var(--bs-body-color);
+    --bs-btn-bg: transparent;
+    --bs-btn-border-width: var(--bs-border-width);
+    --bs-btn-border-color: transparent;
+    --bs-btn-border-radius: var(--bs-border-radius);
+    --bs-btn-hover-border-color: transparent;
+    --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      0 1px 1px rgba(0, 0, 0, 0.075);
+    --bs-btn-disabled-opacity: 0.65;
+    --bs-btn-focus-box-shadow: 0 0 0 0.25rem
+      rgba(var(--bs-btn-focus-shadow-rgb), 0.5);
+    display: inline-block;
+    padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+    font-family: var(--bs-btn-font-family);
+    font-size: var(--bs-btn-font-size);
+    font-weight: var(--bs-btn-font-weight);
+    line-height: var(--bs-btn-line-height);
+    // color: var(--bs-btn-color);
+    color: map-get($map: $colors, $key: "white-1");
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
+    border-radius: var(--bs-btn-border-radius);
+    // background-color: var(--bs-btn-bg);
+    background-color: map-get($map: $colors, $key: "blue-1");
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    padding: 10px 30px;
+    &:hover {
+      // color: var(--bs-btn-hover-color);
+      // background-color: var(--bs-btn-hover-bg);
+      background-color: map-get($map: $colors, $key: "yellow-1");
+      // border-color: var(--bs-btn-hover-border-color);
+    }
+    // &:focus-visible {
+    //   color: var(--bs-btn-hover-color);
+    //   background-color: var(--bs-btn-hover-bg);
+    //   border-color: var(--bs-btn-hover-border-color);
+    //   outline: 0;
+    //   box-shadow: var(--bs-btn-focus-box-shadow);
+    // }
+  }
+
+  .nf-before-form-content {
+    display: none;
+  }
+
+  .nf-response-msg {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 0.25rem;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    // max-width: 717px;
+    margin: auto;
+    margin-top: 2rem;
+
+    max-width: 100%;
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+}

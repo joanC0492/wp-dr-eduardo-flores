@@ -21,7 +21,7 @@
     <section id="page-main" class="page-main pb-5">
       <div class="container">
         <div class="row">
-          <div class="col-5">
+          <div class="col-12 col-lg-5 order-2 order-lg-1 mt-3 mt-md-0">
             <?php if ($is_slider): ?>
               <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
                 <div class="swiper-wrapper">
@@ -64,7 +64,7 @@
               </div>
             <?php endif; ?>
           </div>
-          <div class="col-7">
+          <div class="col-12 col-lg-7 order-1 order-lg-2">
             <div class="page-main__h1-parent">
               <h1 class="page-main__h1 acumin-variable-concept-bold text-blue-1"><?= $titulo ? $titulo : $title ?></h1>
             </div>
@@ -74,7 +74,7 @@
             <!-- SINGLE-BEGIN -->
             <?php if (!empty($video)): ?>
               <div class="page-main__video">
-                <div class="d-flex gap-1 align-items-center justify-content-end me-4">
+                <div class="d-flex gap-1 align-items-center justify-content-end me-0 me-md-4 flex-column flex-md-row">
                   <p class="page-main__video-title">Reproduce el video</p>
                   <div class="page-main__content-iframe">
                     <?= wp_oembed_get($video) ?>
@@ -89,10 +89,10 @@
     </section>
 
     <?php if (!empty($preguntas)): ?>
-      <section id="page-questions" class="page-questions pb-5">
+      <section id="page-questions" class="page-questions pb-4 pb-md-5">
         <div class="container">
           <div class="row">
-            <div class="col-10 mx-auto">
+            <div class="col-12 col-md-10 mx-auto">
               <?php set_query_var('preguntas', $preguntas); ?>
               <?php get_template_part('template-parts/faq-section'); ?>
             </div>

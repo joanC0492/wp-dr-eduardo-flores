@@ -12,6 +12,9 @@
       font-style: normal;
       line-height: 1;
       margin-bottom: 0.5rem;
+      @media (max-width: 767px) {
+        font-size: 38px;
+      }
     }
     &__h2 {
       font-size: 19.53px;

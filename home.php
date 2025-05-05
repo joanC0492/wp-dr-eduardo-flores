@@ -31,7 +31,8 @@ $titulo = get_post_meta($id, 'titulo', true);
 
 <!-- Busqueda -->
 <div id="blog-search" class="blog-search mt-4 mb-5">
-  <form role="search" method="get" action="<?= esc_url(home_url('/')); ?>" class="d-flex justify-content-center">
+  <form role="search" method="get" action="<?= esc_url(home_url('/')); ?>"
+    class="d-flex justify-content-center mx-4 mx-md-0">
     <div class="blog-search__container input-group input-group-lg">
       <button class="blog-search__btn">
         <svg class="svg-icon-search" version="1.1" id="svg1" width="50.666016" height="50.673157"
@@ -108,13 +109,14 @@ $titulo = get_post_meta($id, 'titulo', true);
 </section>
 
 <?php if (!empty($preguntas)): ?>
-  <section id="page-questions" class="page-questions mt-5 mb-6">
+  <section id="page-questions" class="page-questions mt-4 mt-md-5 mb-6">
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-          <h2 class="page-questions__title d-inline-block text-blue-1 acumin-variable-concept-bold line-title-md">Preguntas Frecuentes</h2>
+          <h2 class="page-questions__title d-inline-block text-blue-1 acumin-variable-concept-bold line-title-md">
+            Preguntas Frecuentes</h2>
         </div>
-        <div class="col-10 mx-auto">
+        <div class="col-12 col-md-10 mx-auto">
           <?php set_query_var('preguntas', $preguntas); ?>
           <?php get_template_part('template-parts/faq-section'); ?>
         </div>

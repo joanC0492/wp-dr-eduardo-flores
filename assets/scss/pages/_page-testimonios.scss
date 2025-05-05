@@ -11,6 +11,10 @@
       max-width: 520.8867px;
       margin: auto;
       margin-bottom: 0;
+      @media (max-width: 767px) {
+        font-size: 38px;
+        // font-size: 40px;
+      }
     }
     .video-wrapper {
       max-height: 420px;

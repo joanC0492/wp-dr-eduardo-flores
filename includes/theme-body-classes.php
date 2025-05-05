@@ -14,6 +14,7 @@ function jc_custom_body_class($classes)
     'dr-manuel-eduardo-flores-vilchez' => 'page-slug-dr-manuel-eduardo-flores-vilchez',
     'nuestro-blog' => 'page-slug-nuestro-blog',
     'contactanos' => 'page-slug-contactanos',
+    'libro-de-reclamaciones-2' => 'page-slug-libro-de-reclamaciones',
   ];
   // Asignar clases según el slug de la página
   foreach ($page_classes as $slug => $class) {

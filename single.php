@@ -21,7 +21,7 @@
           </div>
         </article>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 mt-4 mt-lg-0">
         <?php get_sidebar(); ?>
       </div>
     </div>

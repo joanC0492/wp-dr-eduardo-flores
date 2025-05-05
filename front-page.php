@@ -280,7 +280,7 @@
                 <?php endforeach; ?>
               </div>
               <div class="row">
-                <div class="col-12 text-end mt-lg-4 text-center text-md-start">
+                <div class="col-12 text-end mt-lg-4 text-center text-md-end">
                   <div class="me-0 me-md-6">
                     <a href="<?= esc_url(home_url('/testimonios-de-nuestros-pacientes')); ?>"
                       class="testimonials__link acumin-variable-concept-bold btn-cta-content">Ver más

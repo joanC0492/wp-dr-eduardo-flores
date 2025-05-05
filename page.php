@@ -18,7 +18,7 @@
     <section id="page-main" class="page-main">
       <div class="container">
         <div class="row">
-          <div class="col-5">
+          <div class="col-12 col-lg-5 order-2 order-lg-1">
             <?php if ($is_slider): ?>
               <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
                 <div class="swiper-wrapper">
@@ -61,7 +61,7 @@
               </div>
             <?php endif; ?>
           </div>
-          <div class="col-7">
+          <div class="col-12 col-lg-7 order-1 order-lg-2">
             <div class="page-main__h1-parent">
               <h1 class="page-main__h1"><?= $title ?></h1>
             </div>

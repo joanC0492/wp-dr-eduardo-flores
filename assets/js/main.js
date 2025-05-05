@@ -68,11 +68,60 @@
   };
 
   const initDOMReady = () => {
-    console.log("DOM Ready!");
     toggleStickyHeader();
     setActiveMenuItem();
   };
 
   document.addEventListener("DOMContentLoaded", initDOMReady);
   window.addEventListener("scroll", toggleStickyHeader);
+
+  //
+  //
+  //
+  // document.addEventListener("DOMContentLoaded", () => {
+  //   document.querySelectorAll("#menu-mobile .menu__toggle").forEach((toggle) => {
+  //     toggle.addEventListener("click", (e) => {
+  //       const parentItem = toggle.closest(".menu__item");
+  //       const submenu = parentItem.querySelector(".menu__list--submenu");
+
+  //       const isOpen = toggle.getAttribute("aria-expanded") === "true";
+  //       toggle.setAttribute("aria-expanded", String(!isOpen));
+
+  //       if (submenu) {
+  //         submenu.style.display = isOpen ? "none" : "block";
+  //       }
+  //     });
+  //   });
+  // });
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggles = document.querySelectorAll("#menu-mobile .menu__toggle");
+
+    toggles.forEach((toggle) => {
+      toggle.addEventListener("click", () => {
+        const parentItem = toggle.closest(".menu__item");
+        const submenu = parentItem.querySelector(".menu__list--submenu");
+        const isOpen = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!isOpen));
+        if (submenu) submenu.style.display = isOpen ? "none" : "block";
+      });
+    });
+
+    // Extra: Detecta <a href="#0"> con submenús y actúa como si fuera un toggle
+    const fakeLinks = document.querySelectorAll('.menu__link[href="#0"]');
+
+    fakeLinks.forEach((link) => {
+      const parentItem = link.closest(".menu__item");
+      const toggle = parentItem.querySelector(".menu__toggle");
+      const submenu = parentItem.querySelector(".menu__list--submenu");
+
+      if (toggle && submenu) {
+        link.addEventListener("click", (e) => {
+          e.preventDefault(); // Evita el scroll al top
+          const isOpen = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", String(!isOpen));
+          submenu.style.display = isOpen ? "none" : "block";
+        });
+      }
+    });
+  });
 })();

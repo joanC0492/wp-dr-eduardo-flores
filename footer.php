@@ -17,7 +17,7 @@ $mensaje_whatsapp = $footer_s['mensaje_whatsapp'] ? $footer_s['mensaje_whatsapp'
           <?php if (!empty($footer_logo['guid'])): ?>
             <a href="<?= esc_url(home_url('/')) ?>" class="<?= is_front_page() ? 'pointer-events-none' : '' ?>">
               <img src="<?= esc_url($footer_logo['guid']) ?>" alt="<?= esc_attr($footer_logo['post_title']) ?>"
-                width="279">
+                width="279" class="footer__logo-img">
             </a>
           <?php endif; ?>
         </div>

@@ -13,6 +13,9 @@ body.page-slug-contactanos {
         max-width: 717.4878px;
         width: 100%;
         margin: auto;
+        @media (max-width: 767px) {
+          font-size: 24px;
+        }
       }
 
       .nf-form-cont {
@@ -74,6 +77,11 @@ body.page-slug-contactanos {
           padding: 12.5px 76.5px !important;
           &:hover {
             background-color: map-get($map: $colors, $key: "yellow-1");
+          }
+          @media (max-width: 767px) {
+            font-size: 24px;
+            padding-top: 8px !important;
+            padding-bottom: 8px !important;
           }
         }
       }

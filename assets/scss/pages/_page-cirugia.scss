@@ -9,6 +9,9 @@ body.single-procedimiento {
       font-style: normal;
       line-height: 1;
       margin-bottom: 0.5rem;
+      @media (max-width: 767px) {
+        font-size: 38px;
+      }
     }
     &__content {
       p {
@@ -22,11 +25,26 @@ body.single-procedimiento {
       font-weight: 600;
       font-style: normal;
       color: map-get($map: $colors, $key: "blue-1");
+      @media (max-width: 767px) {
+        font-size: 28px;
+      }
     }
     &__content-iframe {
       iframe {
         width: 440.9906px;
         height: 331.7789px;
+        object-fit: cover;
+        @media (max-width: 767px) {
+          width: 100%;
+        }
+      }
+      @media (max-width: 767px) {
+        width: 100%;
+      }
+    }
+    .single-image {
+      img {
+        min-height: 360px;
         object-fit: cover;
       }
     }
