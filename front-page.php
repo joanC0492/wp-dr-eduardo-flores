@@ -26,13 +26,9 @@
 
     // 
     $seccion_agenda = get_post_meta($id, 'seccion_agenda_tu_cita', true);
-
-    // echo '<pre>';
-    // print_r($image_cirujano_url);
-    // echo '</pre>';
     ?>
     <section id="home-hero" class="home-hero position-relative z-1"
-      style="background-image: url(<?= esc_url($image_url) ?>);">
+      style="background-image: url(<?= esc_url($image_url) ?>)">
       <div class="container h-100">
         <div class="row h-100 align-items-end">
           <div class="col-12 text-start">
@@ -51,16 +47,19 @@
         "name" => "Clínica Santa Beatriz",
         "img" => "clinica-santa-beatriz.svg",
         "width" => 239.543,
+        "height" => 40.72,
       ],
       [
         "name" => "Clínica Porvenir",
         "img" => "clinica-porvenir.svg",
         "width" => 184.3243,
+        "height" => 52.42,
       ],
       [
         "name" => "Clínica Novogroup",
         "img" => "clinica-novogroup.svg",
         "width" => 245.1711,
+        "height" => 90,
       ],
     ];
     ?>
@@ -71,12 +70,12 @@
             <div class="home-cintillo__content d-flex justify-content-center align-items-center">
               <p class="home-cintillo__title text-blue-1 acumin-variable-concept-bold">¿Dónde te operamos?</p>
               <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/arrow-right.svg') ?>" alt="Arrow Right"
-                class="home-cintillo__arrow-right d-none d-md-block" width="21">
+                class="home-cintillo__arrow-right d-none d-md-block" width="21" height="29">
               <ul class="home-cintillo__list d-flex justify-content-center align-items-center">
                 <?php foreach ($images_cintillo as $image): ?>
                   <li class="home-cintillo__item d-flex justify-content-center align-items-center">
                     <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/' . $image['img']) ?>"
-                      alt="<?= esc_attr($image['name']) ?>" width="<?= $image['width'] ?>"
+                      alt="<?= esc_attr($image['name']) ?>" width="<?= $image['width'] ?>" height="<?= $image["height"] ?>"
                       class="home-cintillo__img img-fluid" />
                   </li>
                 <?php endforeach; ?>
@@ -99,17 +98,20 @@
         [
           "img" => "icon-seguridad.svg",
           "name" => "Seguridad",
-          "width" => 41.8477
+          "width" => 41.8477,
+          "height" => 50,
         ],
         [
           "img" => "icon-experticia.svg",
           "name" => "Experticia",
-          "width" => 41.3444
+          "width" => 41.3444,
+          "height" => 52,
         ],
         [
           "img" => "icon-transparencia.svg",
           "name" => "Transparencia",
-          "width" => 52.4781
+          "width" => 52.4781,
+          "height" => 51,
         ]
       ]
     ];
@@ -119,7 +121,7 @@
         <div class="row">
           <div class="col-lg-6 text-center mb-5 px-4 px-xxl-6 order-2 order-lg-1">
             <img src="<?= esc_url($image_cirujano_url) ?>" alt="<?= esc_attr($image_cirujano_text) ?>"
-              class="img-fluid w-100 rounded-5 home-content__img-main" />
+              class="img-fluid w-100 rounded-5 home-content__img-main" width="532" height="466" />
           </div>
           <div class="col-lg-6 text-center mb-5 order-1 order-lg-2">
             <div>
@@ -143,8 +145,8 @@
                   <?php foreach ($home_content["logos"] as $logo): ?>
                     <li class="home-content__list-logo-item">
                       <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/' . $logo['img']) ?>"
-                        alt="<?= esc_attr($logo['name']) ?>" width="<?= esc_attr($logo["width"]) ?>"
-                        class="home-content__list-logo-img" />
+                        alt="Icono de <?= esc_attr($logo['name']) ?>" width="<?= esc_attr($logo["width"]) ?>"
+                        height="<?= esc_attr($logo["height"]) ?>" class="home-content__list-logo-img" />
                       <p class="home-content__list-logo-txt text-blue-1 acumin-variable-concept-bold"><?= $logo['name'] ?></p>
                     </li>
                   <?php endforeach; ?>
@@ -183,9 +185,11 @@
             <div class="surgery-process__circle text-center pt-5 pt-md-6 pt-lg-0">
               <div class="surgery-process__icon-corazon mb-3">
                 <img src="<?= esc_url(get_template_directory_uri() . "/assets/images/icon-corazon.webp") ?>"
-                  alt="Icono de Corazon" width="88.2499" class="surgery-process__icon-corazon-img img-fluid me-9" />
+                  alt="Icono de Corazon" width="88.2499" height="82"
+                  class="surgery-process__icon-corazon-img img-fluid me-9" />
               </div>
-              <h2 class="surgery-process__title acumin-variable-concept-bold text-white-1 lh-1 text-start hide-br show-md-br">
+              <h2
+                class="surgery-process__title acumin-variable-concept-bold text-white-1 lh-1 text-start hide-br show-md-br">
                 <span class="text-yellow-1 highlight">¡Estamos contigo,</span><br />
                 en cada etapa de tu cirugía!
               </h2>
@@ -202,7 +206,8 @@
           <!-- DERECHA: cards -->
           <div class="col-lg-7 p-3 p-md-5 surgery-process__right">
             <!-- <div class="row gy-4"> -->
-            <div class="surgery-process__card-content d-flex flex-wrap gap-4 justify-content-center justify-content-lg-start">
+            <div
+              class="surgery-process__card-content d-flex flex-wrap gap-4 justify-content-center justify-content-lg-start">
               <!-- Card 1 -->
               <!-- <div class="col-12"> -->
               <div class="surgery-process__card bg-white-1">
@@ -254,12 +259,14 @@
           <div class="row testimonials__content">
             <!-- Testimonio principal -->
             <div class="col-lg-4">
-              <h2 class="testimonials__title hide-br show-md-br text-start text-blue-1 acumin-variable-concept-bold lh-1 mt-4 mt-md-5"><span
-                  class="text-sky-blue-1">Nuestros pacientes,</span> <br>nos respaldan</h2>
+              <h2
+                class="testimonials__title hide-br show-md-br text-start text-blue-1 acumin-variable-concept-bold lh-1 mt-4 mt-md-5">
+                <span class="text-sky-blue-1">Nuestros pacientes,</span> <br>nos respaldan
+              </h2>
               <div class="testimonials__card d-flex flex-row gap-3 mt-4">
                 <div class="testimonials__img-container">
                   <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/avatar-default.webp') ?>"
-                    alt="Testimonio 1" class="testimonials__img rounded-circle" width="64.3683" />
+                    alt="Testimonio 1" class="testimonials__img rounded-circle" width="64" height="64" />
                 </div>
                 <div class="testimonials__text">
                   <h3 class="testimonials__name acumin-variable-concept-bold text-blue-1 mb-0">Lidia Ramirez</h3>
@@ -274,7 +281,16 @@
                 <?php foreach ($testimonios as $testimonio): ?>
                   <div class="col-lg-4 mb-4 mb-lg-0 testimonials__video">
                     <div class="ratio ratio-16x9">
-                      <?= wp_oembed_get($testimonio) ?>
+                      <?php
+                      echo wp_oembed_get($testimonio);
+                      // $youtube_id = getYouTubeId($testimonio);
+                      // $thumbnail = "https://img.youtube.com/vi/$youtube_id/hqdefault.jpg";
+                      ?>
+                      <!-- <div class="youtube-lite" data-id="<?= esc_attr($youtube_id) ?>">
+                        <img src="<?= esc_url($thumbnail) ?>" alt="Testimonio" loading="lazy" />
+                        <button class="youtube-play-btn" aria-label="Reproducir video"></button>
+                      </div> -->
+
                     </div>
                   </div>
                 <?php endforeach; ?>
@@ -374,4 +390,48 @@
 
   <?php endwhile; ?>
 <?php endif; ?>
+<script>
+  (() => {
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.youtube-lite').forEach(function (el) {
+        el.addEventListener('click', function () {
+          const videoId = el.dataset.id;
+          const iframe = document.createElement('iframe');
+          iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
+          iframe.setAttribute('frameborder', '0');
+          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+          iframe.setAttribute('allowfullscreen', '');
+          iframe.className = 'ratio ratio-16x9';
+          el.innerHTML = '';
+          el.appendChild(iframe);
+        });
+      });
+    });
+  })();
+</script>
+<style>
+  .youtube-lite {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .youtube-lite img {
+    width: 100%;
+    display: block;
+  }
+
+  .youtube-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 68px;
+    height: 48px;
+    background: url('https://img.icons8.com/ios-filled/50/ffffff/play--v1.png') no-repeat center center;
+    background-size: contain;
+    border: none;
+    opacity: 0.8;
+  }
+</style>
 <?php get_footer(); ?>

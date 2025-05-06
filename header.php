@@ -7,6 +7,13 @@
   <link rel="profile" href="https://gmpg.org/xfn/11">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Precargar imagenes -->
+  <?php
+  if (is_front_page()) {
+    $hero_image = wp_get_attachment_image_url(get_post_thumbnail_id(), 'full');
+    echo '<link rel="preload" as="image" href="' . esc_url($hero_image) . '" />';
+  }
+  ?>
   <?php wp_head(); ?>
 </head>
 
@@ -64,11 +71,11 @@
   <header id="header" class="header z-2 position-relative fade-in-500">
     <nav class="navbar navbar-expand-lg py-0 d-none d-lg-flex">
       <div class="container-xxl">
+        <!-- class="navbar-brand py-3 py-xxl-4 < is_front_page()  'pointer-events-none---' : '' "> -->
         <?php if (!empty($logo_header['guid'])): ?>
-          <a href="<?= esc_url(home_url('/')) ?>"
-            class="navbar-brand py-3 py-xxl-4 <?= is_front_page() ? 'pointer-events-none' : '' ?>">
+          <a href="<?= esc_url(home_url('/')) ?>" class="navbar-brand py-3 py-xxl-4">
             <img src="<?= esc_url($logo_header['guid']) ?>" alt="<?= $logo_header["post_title"] ?>"
-              class="img-fluid header__logo" width="206" />
+              class="img-fluid header__logo" width="206" height="92" />
           </a>
         <?php else: ?>
           <a class="navbar-brand" href="#">Navbar</a>

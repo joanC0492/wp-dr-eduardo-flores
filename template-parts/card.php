@@ -13,9 +13,9 @@ $excerpt = $data['excerpt'] ?? '';
     <?php endif; ?>
     <div class="p-0">
       <div class="card-blog__heading bg-blue-1 text-center px-3 d-flex align-items-center justify-content-center">
-        <h5 class="card-blog__title card-title text-white-1 acumin-variable-concept-bold mb-0 lh-1">
+        <h6 class="card-blog__title card-title text-white-1 acumin-variable-concept-bold mb-0 lh-1">
           <?= esc_html($title); ?>
-        </h5>
+        </h6>
       </div>
     </div>
   </article>

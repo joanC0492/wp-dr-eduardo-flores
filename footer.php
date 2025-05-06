@@ -14,10 +14,11 @@ $mensaje_whatsapp = $footer_s['mensaje_whatsapp'] ? $footer_s['mensaje_whatsapp'
     <div class="row">
       <div class="col-lg-4">
         <div>
+          <!-- is_front_page() ? 'pointer-events-none' -->
           <?php if (!empty($footer_logo['guid'])): ?>
-            <a href="<?= esc_url(home_url('/')) ?>" class="<?= is_front_page() ? 'pointer-events-none' : '' ?>">
+            <a href="<?= esc_url(home_url('/')) ?>" class="">
               <img src="<?= esc_url($footer_logo['guid']) ?>" alt="<?= esc_attr($footer_logo['post_title']) ?>"
-                width="279" class="footer__logo-img">
+                width="229" height="99" class="footer__logo-img">
             </a>
           <?php endif; ?>
         </div>

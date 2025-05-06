@@ -31,12 +31,12 @@ function theme_assets()
   );
 
   /* Font Awesome css */
-  wp_enqueue_style(
-    'fontawesome-6.5.1-style',
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
-    array(), // Sin dependencias
-    '6.5.1' // Versión para caché
-  );
+  // wp_enqueue_style(
+  //   'fontawesome-6.5.1-style',
+  //   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
+  //   array(), // Sin dependencias
+  //   '6.5.1' // Versión para caché
+  // );
 
   /* Montserrat font */
   wp_enqueue_style(
