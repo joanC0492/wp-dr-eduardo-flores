@@ -55,7 +55,7 @@
                       <a class="top-header__social-link text-white-1 d-inline-flex px-1"
                         href="<?= esc_url($network['url']) ?>" target="_blank" rel="noopener noreferrer">
                         <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/' . $network['icon']) ?>"
-                          alt="<?= esc_attr($network['alt']) ?>" width="<?= esc_attr($network['width']) ?>" />
+                          alt="<?= esc_attr($network['alt']) ?>" width="<?= esc_attr($network['width']) ?>" height="<?= esc_attr($network['height']) ?>" />
                       </a>
                     </li>
                   <?php endif; ?>

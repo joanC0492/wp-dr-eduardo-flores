@@ -19,11 +19,16 @@
     .video-wrapper {
       max-height: 420px;
       margin-bottom: 1rem;
+
       iframe,
-      img {
+      .video-thumbnail-img {
         max-width: 100%;
         height: 420px;
         object-fit: cover;
+      }
+
+      .video-icon-play {
+        max-width: 100%;
       }
     }
   }

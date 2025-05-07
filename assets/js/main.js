@@ -57,7 +57,6 @@
   const toggleStickyHeader = () => {
     const header = document.querySelector("#header");
 
-    // if (window.scrollY > 100) {
     if (window.scrollY > 36) {
       header.classList.add("sticky-top", "shadow", "bg-white-1");
       header.classList.remove("position-relative");
@@ -67,33 +66,7 @@
     }
   };
 
-  const initDOMReady = () => {
-    toggleStickyHeader();
-    setActiveMenuItem();
-  };
-
-  document.addEventListener("DOMContentLoaded", initDOMReady);
-  window.addEventListener("scroll", toggleStickyHeader);
-
-  //
-  //
-  //
-  // document.addEventListener("DOMContentLoaded", () => {
-  //   document.querySelectorAll("#menu-mobile .menu__toggle").forEach((toggle) => {
-  //     toggle.addEventListener("click", (e) => {
-  //       const parentItem = toggle.closest(".menu__item");
-  //       const submenu = parentItem.querySelector(".menu__list--submenu");
-
-  //       const isOpen = toggle.getAttribute("aria-expanded") === "true";
-  //       toggle.setAttribute("aria-expanded", String(!isOpen));
-
-  //       if (submenu) {
-  //         submenu.style.display = isOpen ? "none" : "block";
-  //       }
-  //     });
-  //   });
-  // });
-  document.addEventListener("DOMContentLoaded", () => {
+  const initializeMobileMenuToggles = () => {
     const toggles = document.querySelectorAll("#menu-mobile .menu__toggle");
 
     toggles.forEach((toggle) => {
@@ -123,5 +96,40 @@
         });
       }
     });
-  });
+  };
+
+  const initializeYouTubeLazyLoad = () => {
+    document.querySelectorAll(".youtube-lazy").forEach(function (el) {
+      el.addEventListener("click", function () {
+        const id = this.getAttribute("data-id");
+        const iframe = document.createElement("iframe");
+        iframe.setAttribute(
+          "src",
+          "https://www.youtube.com/embed/" + id + "?autoplay=1"
+        );
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute("allowfullscreen", "1");
+        iframe.setAttribute(
+          "allow",
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        );
+        iframe.classList.add("w-100", "h-100");
+        this.innerHTML = "";
+        this.appendChild(iframe);
+      });
+    });
+  };
+
+  const initDOMReady = () => {
+    // MENU PC
+    toggleStickyHeader();
+    setActiveMenuItem();
+    // MENU MOBILE
+    initializeMobileMenuToggles();
+    // YOUTUBE
+    initializeYouTubeLazyLoad();
+  };
+
+  document.addEventListener("DOMContentLoaded", initDOMReady);
+  window.addEventListener("scroll", toggleStickyHeader);
 })();

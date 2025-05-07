@@ -17,17 +17,17 @@ function theme_assets()
   /* Bootstrap css */
   wp_enqueue_style(
     'bootstrap-5.3.5-style',
-    'https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css',
+    get_template_directory_uri() . '/assets/css/bootstrap.min.css',
     array(), // Sin dependencias
-    '5.3.5' // Versión para caché
+    filemtime(get_template_directory() . '/assets/css/bootstrap.min.css') // Evita caché
   );
 
   /* Swiper css */
   wp_enqueue_style(
     'swiper-11.2.6-style',
-    'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',
+    get_template_directory_uri() . '/assets/css/swiper-bundle.min.css',
     array(), // Sin dependencias
-    '11.2.6' // Versión para caché
+    filemtime(get_template_directory() . '/assets/css/swiper-bundle.min.css') // Evita caché
   );
 
   /* Font Awesome css */
@@ -54,22 +54,38 @@ function theme_assets()
     array('bootstrap-5.3.5-style'), // Depende de Bootstrap
     filemtime(get_template_directory() . '/assets/css/main.css') // Evita caché
   );
+
   /*************************** JS ***************************/
   wp_enqueue_script(
     'bootstrap-5.3.5-bundle',
-    'https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js',
-    array(), // Sin dependencias (jQuery no es necesario en Bootstrap 5)
-    '5.3.5', // Versión
-    true // Cargar en el footer (antes de cerrar </body>)
+    get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js',
+    array(), // Sin dependencias
+    filemtime(get_template_directory() . '/assets/js/bootstrap.bundle.min.js'),
+    true // En el footer
   );
+  // wp_enqueue_script(
+  //   'bootstrap-5.3.5-bundle',
+  //   'https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js',
+  //   array(), // Sin dependencias (jQuery no es necesario en Bootstrap 5)
+  //   '5.3.5', // Versión
+  //   true // Cargar en el footer (antes de cerrar </body>)
+  // );
+
   /* Swiper js */
   wp_enqueue_script(
     'swiper-11.2.6-script',
-    'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
-    array("bootstrap-5.3.5-bundle"),
-    '11.2.6',
-    true // Cargar en el footer (antes de cerrar </body>)
+    get_template_directory_uri() . '/assets/js/swiper-bundle.min.js',
+    array("bootstrap-5.3.5-bundle"), // Sin dependencias
+    filemtime(get_template_directory() . '/assets/js/swiper-bundle.min.js'),
+    true // En el footer
   );
+  // wp_enqueue_script(
+  //   'swiper-11.2.6-script',
+  //   'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
+  //   array("bootstrap-5.3.5-bundle"),
+  //   '11.2.6',
+  //   true // Cargar en el footer (antes de cerrar </body>)
+  // );
 
   /* My js */
   wp_enqueue_script(
@@ -257,6 +273,12 @@ function getYouTubeId($url)
   preg_match('/\/embed\/([^?]+)/', $url, $matches);
   return $matches[1] ?? '';
 }
+function get_youtube_id($url)
+{
+  preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/', $url, $matches);
+  return $matches[1] ?? null;
+}
+
 
 // Permite mostrar 3 Elementos en el home.php
 function custom_posts_per_page_home($query)
@@ -358,3 +380,12 @@ function custom_ninja_forms_generate_id($form_data)
   return $form_data;
 }
 add_filter('ninja_forms_submit_data', 'custom_ninja_forms_generate_id');
+
+
+// Deshabilitar REST API para usuarios no autenticados
+add_filter('rest_authentication_errors', function ($result) {
+  if (!is_user_logged_in()) {
+    return new WP_Error('rest_forbidden', 'The REST API is disabled for anonymous users.', array('status' => 401));
+  }
+  return $result;
+});

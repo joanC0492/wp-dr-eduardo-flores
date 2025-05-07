@@ -17,7 +17,7 @@
   }
   &__content {
     transition: all 0.3s;
-  }  
+  }
   &:hover {
     .card-blog__article {
       // border: 3.1458px solid map-get($map: $colors, $key: "yellow-1");
@@ -26,5 +26,40 @@
     .card-blog__content {
       box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     }
+  }
+}
+
+.card-youtube {
+  // height: 100%;
+  height: 421px;
+  .youtube-lazy {
+    position: relative;
+    cursor: pointer;
+    background-color: #000;
+    height: 100%;
+    border-radius: .5rem;
+  }
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .youtube-lazy .play-button {
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // width: 60px;
+    // height: 60px;
+    // background: url("/wp-content/themes/tu-tema/assets/images/play-button.png")
+    //   no-repeat center center;
+    // background-size: contain;
+    // transform: translate(-50%, -50%);
+    // pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: white;
   }
 }

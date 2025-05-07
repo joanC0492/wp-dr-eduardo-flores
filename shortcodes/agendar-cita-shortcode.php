@@ -36,8 +36,8 @@ function seccion_agendar_cita_shortcode($atts)
       <div class="mt-4 mt-lg-0 col-lg-6 col-xl-5 text-center align-self-center">
         <a class="section-agendar-cita__btn btn-cta-agendar-cita acumin-variable-concept-bold" href="' . esc_url($url_whatsapp) . '" target="_blank" rel="noopener noreferrer">
           AGENDAR CITA          
-          <img src="' . get_template_directory_uri() . '/assets/images/icon-arrow-btn-blue.webp" alt="Arrow Button"  class="icon-arrow-btn-blue"/>
-          <img src="' . get_template_directory_uri() . '/assets/images/icon-arrow-btn-white.webp" alt="Arrow Button"  class="icon-arrow-btn-white"/>
+          <img src="' . get_template_directory_uri() . '/assets/images/icon-arrow-btn-blue.webp" alt="Arrow Button"  class="icon-arrow-btn-blue" width="13" height="21" />
+          <img src="' . get_template_directory_uri() . '/assets/images/icon-arrow-btn-white.webp" alt="Arrow Button"  class="icon-arrow-btn-white" width="13" height="21" />
         </a>
       </div>
     </div>

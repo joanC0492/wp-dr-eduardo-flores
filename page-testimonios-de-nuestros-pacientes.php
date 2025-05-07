@@ -50,10 +50,12 @@
                     <div class="video-wrapper" data-src="<?= esc_url($src) ?>">
                       <div class="video-thumbnail" style="position: relative; cursor: pointer;">
                         <img src="https://img.youtube.com/vi/<?= esc_html(getYouTubeId($src)) ?>/hqdefault.jpg"
-                          class="img-fluid" />
+                          class="img-fluid video-thumbnail-img" />
                         <div class="play-button"
                           style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:3rem;color:white;">
-                          ▶</div>
+                          <img src="<?= get_template_directory_uri() . '/assets/images/icon-button-testimonio.webp' ?>"
+                            alt="Icono de Boton Play" width="144" height="144" class="video-icon-play">
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -16,19 +16,22 @@ function get_social_links_data()
       'url' => $settings->field('top_header_facebook'),
       'icon' => 'icon-facebook.png',
       'alt' => 'Facebook',
-      'width' => 9
+      'width' => 9,
+      'height' => 19,
     ],
     [
       'url' => $settings->field('top_header_instagram'),
       'icon' => 'icon-instagram.png',
       'alt' => 'Instagram',
-      'width' => 20
+      'width' => 20,
+      'height' => 19,
     ],
     [
       'url' => $settings->field('top_header_tiktok'),
       'icon' => 'icon-tiktok.png',
       'alt' => 'TikTok',
-      'width' => 16
+      'width' => 16,
+      'height' => 17,
     ]
   ];
 }

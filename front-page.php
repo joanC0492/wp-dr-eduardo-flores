@@ -163,9 +163,9 @@
                 href="<?= esc_url(home_url('/dr-manuel-eduardo-flores-vilchez')); ?>">Conoce
                 más
                 <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/icon-arrow-btn-blue.webp') ?>"
-                  alt="Arrow Button" class="icon-arrow-btn-blue" />
+                  alt="Arrow Button" class="icon-arrow-btn-blue" width="6" height="10" />
                 <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/icon-arrow-btn-white.webp') ?>"
-                  alt="Arrow Button" class="icon-arrow-btn-white" />
+                  alt="Arrow Button" class="icon-arrow-btn-white" width="6" height="10" />
               </a>
             </div>
           </div>
@@ -198,7 +198,7 @@
               </p>
               <div class="surgery-process__icon-cruz mt-3">
                 <img src="<?= esc_url(get_template_directory_uri() . "/assets/images/icon-cruz.webp") ?>" alt="Icono Cruz"
-                  width="45.1481" class="surgery-process__icon-cruz-img img-fluid" />
+                  width="45" height="45" class="surgery-process__icon-cruz-img img-fluid" />
               </div>
             </div>
           </div>
@@ -280,17 +280,18 @@
               <div class="row">
                 <?php foreach ($testimonios as $testimonio): ?>
                   <div class="col-lg-4 mb-4 mb-lg-0 testimonials__video">
-                    <div class="ratio ratio-16x9">
-                      <?php
-                      echo wp_oembed_get($testimonio);
-                      // $youtube_id = getYouTubeId($testimonio);
-                      // $thumbnail = "https://img.youtube.com/vi/$youtube_id/hqdefault.jpg";
-                      ?>
-                      <!-- <div class="youtube-lite" data-id="<?= esc_attr($youtube_id) ?>">
-                        <img src="<?= esc_url($thumbnail) ?>" alt="Testimonio" loading="lazy" />
-                        <button class="youtube-play-btn" aria-label="Reproducir video"></button>
-                      </div> -->
-
+                    <div class="card-youtube">
+                      <?php $video_id = get_youtube_id($testimonio); ?>
+                      <?php if ($video_id): ?>
+                        <?php $thumbnail = "https://img.youtube.com/vi/{$video_id}/hqdefault.jpg"; ?>
+                        <div class="youtube-lazy" data-id="<?= esc_attr($video_id); ?>" style="cursor:pointer;">
+                          <img src="<?= esc_url($thumbnail); ?>" class="img-fluid" loading="lazy" alt="Video testimonial" />
+                          <div class="play-button">
+                            <img src="<?= get_template_directory_uri() . '/assets/images/icon-button-testimonio.webp' ?>" alt="Icono de Boton Play" width="144"
+                              height="144">
+                          </div>
+                        </div>
+                      <?php endif; ?>
                     </div>
                   </div>
                 <?php endforeach; ?>
@@ -301,9 +302,9 @@
                     <a href="<?= esc_url(home_url('/testimonios-de-nuestros-pacientes')); ?>"
                       class="testimonials__link acumin-variable-concept-bold btn-cta-content">Ver más
                       <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/icon-arrow-btn-blue.webp') ?>"
-                        alt="Arrow Button" class="icon-arrow-btn-blue" />
+                        alt="Arrow Button" class="icon-arrow-btn-blue" width="6" height="10" />
                       <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/icon-arrow-btn-white.webp') ?>"
-                        alt="Arrow Button" class="icon-arrow-btn-white" />
+                        alt="Arrow Button" class="icon-arrow-btn-white" width="6" height="10" />
                     </a>
                   </div>
                 </div>
@@ -363,9 +364,9 @@
               class="latest-posts__cta acumin-variable-concept-bold btn-cta-content">
               Ir al blog
               <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/icon-arrow-btn-blue.webp') ?>"
-                alt="Arrow Button" class="icon-arrow-btn-blue" />
+                alt="Arrow Button" class="icon-arrow-btn-blue" width="6" height="10" />
               <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/icon-arrow-btn-white.webp') ?>"
-                alt="Arrow Button" class="icon-arrow-btn-white" />
+                alt="Arrow Button" class="icon-arrow-btn-white" width="6" height="10" />
             </a>
           </div>
         </div>
@@ -387,51 +388,6 @@
         </section>
       <?php endif; ?>
     </section>
-
   <?php endwhile; ?>
 <?php endif; ?>
-<script>
-  (() => {
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('.youtube-lite').forEach(function (el) {
-        el.addEventListener('click', function () {
-          const videoId = el.dataset.id;
-          const iframe = document.createElement('iframe');
-          iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
-          iframe.setAttribute('frameborder', '0');
-          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-          iframe.setAttribute('allowfullscreen', '');
-          iframe.className = 'ratio ratio-16x9';
-          el.innerHTML = '';
-          el.appendChild(iframe);
-        });
-      });
-    });
-  })();
-</script>
-<style>
-  .youtube-lite {
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-  }
-
-  .youtube-lite img {
-    width: 100%;
-    display: block;
-  }
-
-  .youtube-play-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 68px;
-    height: 48px;
-    background: url('https://img.icons8.com/ios-filled/50/ffffff/play--v1.png') no-repeat center center;
-    background-size: contain;
-    border: none;
-    opacity: 0.8;
-  }
-</style>
 <?php get_footer(); ?>

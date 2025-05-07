@@ -12,6 +12,7 @@
     format("woff2");
   font-weight: 100;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "AcuminVariableConceptLight";
@@ -19,12 +20,14 @@
     format("woff2");
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "AcuminVariableConcept";
   src: url("../fonts/acumin-variable-concept/Acumin-RPro.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "AcuminVariableConceptItalic";
@@ -32,6 +35,7 @@
     format("woff2");
   font-weight: 400;
   font-style: italic;
+  font-display: swap;
 }
 @font-face {
   font-family: "AcuminVariableConceptMedium";
@@ -39,6 +43,7 @@
     format("woff2");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "AcuminVariableConceptSemiBold";
@@ -47,6 +52,7 @@
     format("woff2");
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "AcuminVariableConceptBold";
@@ -54,6 +60,7 @@
     format("woff2");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "AcuminVariableConceptBoldItalic";
@@ -61,6 +68,7 @@
     format("woff2");
   font-weight: 700;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -70,6 +78,7 @@
   // src: url("../fonts/acumin-variable-concept/Acumin-BdPro.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
 }
 
 /* ALTONE TRIAL */
@@ -78,6 +87,7 @@
   src: url("../fonts/altone-trial/AltoneTrial-Bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -86,6 +96,7 @@
     format("woff2");
   font-weight: bold;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -93,6 +104,7 @@
   src: url("../fonts/altone-trial/AltoneTrial-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -101,6 +113,7 @@
     format("woff2");
   font-weight: normal;
   font-style: italic;
+  font-display: swap;
 }
 
 /* MYRIAD PRO */
@@ -109,6 +122,7 @@
   src: url("../fonts/myriad-pro/MyriadPro-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -116,6 +130,7 @@
   src: url("../fonts/myriad-pro/MYRIADPRO-REGULAR.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -123,6 +138,7 @@
   src: url("../fonts/myriad-pro/MYRIADPRO-COND.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -130,6 +146,7 @@
   src: url("../fonts/myriad-pro/MYRIADPRO-CONDIT.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -137,6 +154,7 @@
   src: url("../fonts/myriad-pro/MYRIADPRO-SEMIBOLD.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -144,6 +162,7 @@
   src: url("../fonts/myriad-pro/MYRIADPRO-SEMIBOLDIT.woff2") format("woff2");
   font-weight: 600;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -151,6 +170,7 @@
   src: url("../fonts/myriad-pro/MYRIADPRO-BOLD.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -158,6 +178,7 @@
   src: url("../fonts/myriad-pro/MYRIADPRO-BOLDIT.woff2") format("woff2");
   font-weight: 700;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -165,6 +186,7 @@
   src: url("../fonts/myriad-pro/MYRIADPRO-BOLDCOND.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -172,6 +194,7 @@
   src: url("../fonts/myriad-pro/MYRIADPRO-BOLDCONDIT.woff2") format("woff2");
   font-weight: 700;
   font-style: italic;
+  font-display: swap;
 }
 
 /* CLASES PARA USAR LAS FUENTES */
