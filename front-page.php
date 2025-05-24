@@ -26,20 +26,43 @@
 
     // 
     $seccion_agenda = get_post_meta($id, 'seccion_agenda_tu_cita', true);
+
+    // 
+    $home_carousel_hero = get_post_meta($id, 'home_carousel_hero', false);
     ?>
-    <section id="home-hero" class="home-hero position-relative z-1"
-      style="background-image: url(<?= esc_url($image_url) ?>)">
-      <div class="container h-100">
-        <div class="row h-100 align-items-end">
-          <div class="col-12 text-start">
-            <div class="home-hero__content pb-10">
-              <h2 class="home-hero__title text-blue-1 acumin-variable-concept-black mb-0"><?= $titulo ? $titulo : $title ?>
-              </h2>
-            </div>
+    <?php if (!empty($home_carousel_hero) && is_array($home_carousel_hero)): ?>
+      <section id="home-hero" class="home-hero position-relative z-1">
+        <div class="swiper mySwiper-home-hero h-100">
+          <div class="swiper-wrapper h-100">
+            <?php foreach ($home_carousel_hero as $index => $home_carousel_id):
+              $carousel_post = get_post($home_carousel_id);
+              if (!$carousel_post)
+                continue;
+              $titulo_carousel = esc_html($carousel_post->post_title);
+              $imagen_carousel = get_the_post_thumbnail_url($carousel_post->ID, 'full');
+              $titulo_personalizado = get_post_meta($carousel_post->ID, 'titulo', true);
+              ?>
+              <div class="swiper-slide h-100 swiper-slide--<?= $index ?>" style="background-image: url(<?= $imagen_carousel ?>);">
+                <div class="container h-100">
+                  <div class="row h-100 align-items-end">
+                    <div class="col-12 text-start">
+                      <div class="home-hero__content pb-10">
+                        <h2 class="home-hero__title text-blue-1 acumin-variable-concept-black mb-0">
+                          <?= $titulo_personalizado ? $titulo_personalizado : $titulo_carousel ?>
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
           </div>
+          <div class="swiper-button-next swiper-button-next--home-hero"></div>
+          <div class="swiper-button-prev swiper-button-prev--home-hero"></div>
+          <div class="swiper-pagination swiper-pagination--home-hero"></div>
         </div>
-      </div>
-    </section>
+      </section>
+    <?php endif; ?>
 
     <?php
     $images_cintillo = [
@@ -245,7 +268,6 @@
                 </ul>
               </div>
               <!-- </div> -->
-
             </div>
           </div>
         </div>
@@ -287,8 +309,8 @@
                         <div class="youtube-lazy" data-id="<?= esc_attr($video_id); ?>" style="cursor:pointer;">
                           <img src="<?= esc_url($thumbnail); ?>" class="img-fluid" loading="lazy" alt="Video testimonial" />
                           <div class="play-button">
-                            <img src="<?= get_template_directory_uri() . '/assets/images/icon-button-testimonio.webp' ?>" alt="Icono de Boton Play" width="144"
-                              height="144">
+                            <img src="<?= get_template_directory_uri() . '/assets/images/icon-button-testimonio.webp' ?>"
+                              alt="Icono de Boton Play" width="144" height="144">
                           </div>
                         </div>
                       <?php endif; ?>

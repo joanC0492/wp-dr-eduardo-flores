@@ -2,11 +2,15 @@
   margin-top: -172px;
   margin-top: -140px;
   background-size: cover;
-  background-position: center;
+  background-position: top center;
   background-repeat: no-repeat;
   height: calc(100vh + -36px);
   max-height: 973px;
-
+  [class*="swiper-slide--"] {
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+  }
   .wp-block-cover {
     min-height: 500px;
   }

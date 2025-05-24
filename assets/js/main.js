@@ -120,6 +120,27 @@
     });
   };
 
+  const homeHeroCarousel = () => {
+    // const swiper = new Swiper(".mySwiper-home-hero", {
+    new Swiper(".mySwiper-home-hero", {
+      slidesPerView: 1,
+      loop: true,
+      effect: "fade",
+      autoplay: {
+        delay: 5000,
+        // disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination--home-hero",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next--home-hero",
+        prevEl: ".swiper-button-prev--home-hero",
+      },
+    });
+  };
+
   const initDOMReady = () => {
     // MENU PC
     toggleStickyHeader();
@@ -128,6 +149,8 @@
     initializeMobileMenuToggles();
     // YOUTUBE
     initializeYouTubeLazyLoad();
+    // CAROUSEL HOME
+    homeHeroCarousel();
   };
 
   document.addEventListener("DOMContentLoaded", initDOMReady);
