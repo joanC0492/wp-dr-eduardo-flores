@@ -29,6 +29,9 @@
 
     // 
     $home_carousel_hero = get_post_meta($id, 'home_carousel_hero', false);
+
+    // 
+    $testimonios_2 = get_post_meta($id, 'seccion_testimonios_2', false);
     ?>
     <?php if (!empty($home_carousel_hero) && is_array($home_carousel_hero)): ?>
       <section id="home-hero" class="home-hero position-relative z-1">
@@ -42,7 +45,8 @@
               $imagen_carousel = get_the_post_thumbnail_url($carousel_post->ID, 'full');
               $titulo_personalizado = get_post_meta($carousel_post->ID, 'titulo', true);
               ?>
-              <div class="swiper-slide h-100 swiper-slide--<?= $index ?>" style="background-image: url(<?= $imagen_carousel ?>);">
+              <div class="swiper-slide h-100 swiper-slide--<?= $index ?>"
+                style="background-image: url(<?= $imagen_carousel ?>);">
                 <div class="container h-100">
                   <div class="row h-100 align-items-end">
                     <div class="col-12 text-start">
@@ -275,35 +279,40 @@
     </section>
 
     <!--  NUESTROS PACIENTES NOS RESPALDAN -->
-    <?php if (!empty($testimonios)): ?>
+    <!-- V2 -->
+    <?php if (!empty($testimonios_2)): ?>
       <section id="testimonials" class="testimonials py-4 py-md-6">
         <div class="container">
           <div class="row testimonials__content">
-            <!-- Testimonio principal -->
             <div class="col-lg-4">
               <h2
                 class="testimonials__title hide-br show-md-br text-start text-blue-1 acumin-variable-concept-bold lh-1 mt-4 mt-md-5">
                 <span class="text-sky-blue-1">Nuestros pacientes,</span> <br>nos respaldan
               </h2>
               <div class="testimonials__card d-flex flex-row gap-3 mt-4">
-                <div class="testimonials__img-container">
-                  <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/avatar-default.webp') ?>"
-                    alt="Testimonio 1" class="testimonials__img rounded-circle" width="64" height="64" />
-                </div>
                 <div class="testimonials__text">
-                  <h3 class="testimonials__name acumin-variable-concept-bold text-blue-1 mb-0">Lidia Ramirez</h3>
-                  <p class="testimonials__description text-gray-1 acumin-variable-concept-light mb-0">Testimonio de nuestra
-                    paciente cirugía de vesícula</p>
+                  <h3 class="testimonials__name acumin-variable-concept-bold text-blue-1 mb-0">La confianza de quienes ya
+                    vivieron la experiencia nos avala</h3>
+                  <p class="testimonials__description text-gray-1 acumin-variable-concept-light mb-0">Cada testimonio refleja
+                    nuestro compromiso con la calidad, el cuidado y los resultados.</p>
                 </div>
               </div>
             </div>
             <!-- Videos (iframes de YouTube) -->
             <div class="col-lg-8 mt-4 mt-lg-0">
               <div class="row">
-                <?php foreach ($testimonios as $testimonio): ?>
-                  <div class="col-lg-4 mb-4 mb-lg-0 testimonials__video">
+                <?php foreach ($testimonios_2 as $index => $testimonio): ?>
+                  <?php
+                  $testimonio_post = get_post($testimonio);
+                  if (!$testimonio_post)
+                    continue;
+                  $titulo_testimonio = get_post_meta($testimonio_post->ID, 'nombre', true);
+                  $operacion_testimonio = get_post_meta($testimonio_post->ID, 'operacion', true);
+                  $video_testimonio = get_post_meta($testimonio_post->ID, 'youtube_video', true);                  
+                  ?>
+                  <div class="col-lg-4 mb-4 mb-lg-0 testimonials__video <?= $index > 0 ? 'mt-5 mt-lg-0' : '' ?>">
                     <div class="card-youtube">
-                      <?php $video_id = get_youtube_id($testimonio); ?>
+                      <?php $video_id = get_youtube_id($video_testimonio); ?>
                       <?php if ($video_id): ?>
                         <?php $thumbnail = "https://img.youtube.com/vi/{$video_id}/hqdefault.jpg"; ?>
                         <div class="youtube-lazy" data-id="<?= esc_attr($video_id); ?>" style="cursor:pointer;">
@@ -313,6 +322,10 @@
                               alt="Icono de Boton Play" width="144" height="144">
                           </div>
                         </div>
+                        <div class="lh-sm mt-2">
+                          <p class="acumin-variable-concept-bold text-blue-1"><?= $titulo_testimonio ?></p>
+                          <p class="acumin-variable-concept-bold"><?= $operacion_testimonio ?></p>
+                        </div>
                       <?php endif; ?>
                     </div>
                   </div>
@@ -320,7 +333,7 @@
               </div>
               <div class="row">
                 <div class="col-12 text-end mt-lg-4 text-center text-md-end">
-                  <div class="me-0 me-md-6">
+                  <div class="me-0 me-md-6 mt-5">
                     <a href="<?= esc_url(home_url('/testimonios-de-nuestros-pacientes')); ?>"
                       class="testimonials__link acumin-variable-concept-bold btn-cta-content">Ver más
                       <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/icon-arrow-btn-blue.webp') ?>"

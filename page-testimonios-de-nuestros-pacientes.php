@@ -18,6 +18,7 @@
     // echo "<pre>";
     // print_r($testimonios);
     // echo "</pre>";
+    $testimonios_2 = get_post_meta($id, 'testimonios_2', false);
 
     ?>
     <section id="page-main" class="page-main">
@@ -34,15 +35,23 @@
                 <?= $content ?>
               </div>
             </div>
-            <?php if (!empty($testimonios)): ?>
+            <?php if (!empty($testimonios_2)): ?>
               <div class="row my-5">
-                <?php foreach ($testimonios as $testimonio): ?>
-                  <div class="col-lg-4">
+                <?php foreach ($testimonios_2 as $index => $testimonio): ?>
+                  <?php
+                  $testimonio_post = get_post($testimonio);
+                  if (!$testimonio_post)
+                    continue;
+                  $titulo_testimonio = get_post_meta($testimonio_post->ID, 'nombre', true);
+                  $operacion_testimonio = get_post_meta($testimonio_post->ID, 'operacion', true);
+                  $video_testimonio = get_post_meta($testimonio_post->ID, 'youtube_video', true);
+                  ?>
+                  <div class="col-lg-4 mt-3">
                     <?php
                     // echo wp_oembed_get($testimonio);
                     ?>
                     <?php
-                    $embed_url = wp_oembed_get($testimonio);
+                    $embed_url = wp_oembed_get($video_testimonio);
                     // Extraer la URL del src del iframe
                     preg_match('/src="([^"]+)"/', $embed_url, $matches);
                     $src = $matches[1] ?? '';
@@ -57,6 +66,10 @@
                             alt="Icono de Boton Play" width="144" height="144" class="video-icon-play">
                         </div>
                       </div>
+                    </div>
+                    <div class="lh-sm mt-">
+                      <p class="acumin-variable-concept-bold text-blue-1"><?= $titulo_testimonio ?></p>
+                      <p class="acumin-variable-concept-bold"><?= $operacion_testimonio ?></p>
                     </div>
                   </div>
                 <?php endforeach; ?>

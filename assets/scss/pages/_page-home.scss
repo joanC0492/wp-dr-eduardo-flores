@@ -32,6 +32,14 @@
   }
   &__content {
   }
+  [class*="swiper-button-next--"],
+  [class*="swiper-button-prev--"] {
+    color: #063c5b !important;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: #063c5b !important;
+  }
+
   // 992 and 1199
   @media (max-width: 1199px) {
     margin-top: -108px;
